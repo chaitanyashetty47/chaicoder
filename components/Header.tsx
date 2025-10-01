@@ -15,9 +15,14 @@ const Header: React.FC = () => {
       <nav className="flex justify-between items-center px-8 py-4">
         {/* Logo */}
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold text-[#E07A5F] font-sansation">
+          <img 
+            src="/Logo-without-Bg.png" 
+            alt="The Chai Coder" 
+            className="h-15 w-auto"
+          />
+          {/* <h1 className="text-2xl font-bold text-[#E07A5F] font-sansation">
             TheChaiCoder
-          </h1>
+          </h1> */}
         </div>
 
         {/* Desktop Navigation */}
