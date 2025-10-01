@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Brand Colors */
+  --color-primary-orange: #E07A5F;
+  --color-text-dark: #3D2C20;
+  --color-teal: #2A9D8F;
+  --color-teal-hover: #238B7A;
+  --color-chai-foam: #FFF8F0;
+  --color-chai-latte: #F4A261;
+  --color-chai-light: #f8d2b4;
 }
 
 @theme inline {
@@ -10,6 +19,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Brand Colors for Tailwind */
+  --color-primary-orange: var(--color-primary-orange);
+  --color-text-dark: var(--color-text-dark);
+  --color-teal: var(--color-teal);
+  --color-teal-hover: var(--color-teal-hover);
+  --color-chai-foam: var(--color-chai-foam);
+  --color-chai-latte: var(--color-chai-latte);
+  --color-chai-light: var(--color-chai-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +40,90 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sansation), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A9D8F;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #238B7A;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #2A9D8F;
+  outline-offset: 2px;
+}
+
+/* Radar pulse animation */
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(4.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(4.5);
+    opacity: 0;
+  }
+}
+
+.radar-pulse {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(75, 191, 113);
+  border-radius: 50%;
+  animation: radarPulse 3s ease-out infinite;
+  transform-origin: center center;
+}
+
+/* Additional smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+
+/* Warning stripes pattern */
+.bg-warning-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #000000 0px,
+    #000000 10px,
+    #FFC107 10px,
+    #FFC107 20px
+  );
+}
+
+/* Diagonal warning stripes for ribbon */
+.bg-warning-stripes-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #000000 0px,
+    #000000 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
