@@ -42,7 +42,7 @@ const WhatSetsUsApart = () => {
             What Sets Us Apart
           </h2>
           <p className="text-lg md:text-xl text-text-dark max-w-3xl mx-auto">
-            Building MVPs shouldn't feel messy, here's how we make it smooth.
+            Building MVPs shouldn&apos;t feel messy, here&apos;s how we make it smooth.
           </p>
         </div>
 
