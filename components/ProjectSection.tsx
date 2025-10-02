@@ -1,108 +1,115 @@
-import React from 'react';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
-const ProjectsSection: React.FC = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Revolutionary Data Analytics Platform",
-      description: "A cutting-edge solution for real-time data processing and visualization, leveraging AI/ML for predictive insights.",
-      image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
-      isWorkInProgress: true
-    },
-    {
-      id: 2,
-      title: "E-Commerce Mobile App",
-      description: "Modern shopping experience with seamless checkout, personalized recommendations, and real-time inventory management.",
-      image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600",
-      isWorkInProgress: false
-    },
-    {
-      id: 3,
-      title: "Healthcare Management System",
-      description: "Comprehensive patient management platform with appointment scheduling, medical records, and telemedicine integration.",
-      image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600",
-      isWorkInProgress: true
-    }
-  ];
+const projects = [
+  {
+    id: 1,
+    title: "Strentor",
+    tagline: "Wellness Platform",
+    description: "Strentor is a wellness platform designed to help users stay consistent with their fitness journey. We built a scalable website where clients can subscribe to workout plans, get assigned trainers, and track progress. Features include client workout logs, trainer dashboards, admin oversight, and Razorpay payment integration.",
+    image: "/strentor-hero.jpg",
+    link: "https://www.strentor.com",
+    inProgress: false,
+  },
+  {
+    id: 2,
+    title: "Spopeer",
+    tagline: "Sports Networking",
+    description: "Spopeer is a social platform built to connect sports professionals in one place. Tailored for athletes, coaches, and clubs, it focuses on scalable performance with features like media uploads, profile management, discovery, and connection requests. Designed to evolve with community needs while keeping usability at the center.",
+    image: "/spopeer-hero.jpg",
+    link: "https://www.spopeer.com/",
+    inProgress: true,
+  },
+  {
+    id: 3,
+    title: "FootyNote",
+    tagline: "Football Community",
+    description: "FootyNote is a community-driven platform where fans can rate, review, and discuss matches. Users can log games they've watched, share opinions, and browse insights from others. The goal is to unite football enthusiasts in a dedicated space for engaging discussions and reviews.",
+    image: "/footybox.png",
+    link: "#",
+    inProgress: true,
+  },
+];
 
+const ProjectShowcase = () => {
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
-      <div className="space-y-16">
-        {projects.map((project, index) => (
-          <div key={project.id} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-            {/* Text Content */}
-            <div className={`space-y-4 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#3D2C20] font-sansation leading-tight">
-                {project.title}
-              </h2>
-              <p className="text-lg text-[#3D2C20] font-inter leading-relaxed">
-                {project.description}
-              </p>
-              <div className="pt-2">
-                <a href="#" className="inline-flex items-center text-[#2A9D8F] font-semibold font-inter hover:text-[#238B7A] transition-colors duration-300">
-                  Explore More 
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+    <section id="our-work" className="py-20 px-4 ">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-orange mb-4">
+            Our Work
+          </h2>
+          <p className="text-lg text-text-dark/80 max-w-2xl mx-auto">
+            Real projects, real impact. Here&apos;s how we&apos;ve helped businesses bring their vision to life.
+          </p>
+        </div>
 
-            {/* Project Card */}
-            <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-              <div className="space-y-1">
-                {/* Image Container */}
-                <div className="relative h-64 lg:h-80 overflow-hidden bg-white rounded-2xl shadow-lg">
-                  <img 
-                    src={project.image} 
+        <div className="space-y-20">
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className={`grid md:grid-cols-2 gap-8 items-center ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Left side - Content */}
+              <div className={`space-y-6 p-2.5 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-text-dark mb-3">
+                    {project.title}
+                  </h3>
+                  <Badge className="bg-[#FFD700] text-text-dark hover:bg-[#FFD700]/90 rounded-full px-4 py-1">
+                    {project.tagline}
+                  </Badge>
+                </div>
+                
+                <p className="text-text-brown/70 leading-relaxed text-base md:text-lg">
+                  {project.description}
+                </p>
+
+                {project.link !== "#" && (
+                  <Button 
+                    className="bg-teal hover:bg-teal/90 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                    asChild
+                  >
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      Check Website
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
+              </div>
+
+              {/* Right side - Image */}
+              <div className={`relative p-2.5 ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <Image
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    width={1897}
+                    height={864}
+                    className="w-full h-auto object-contain"
+                    priority={index === 0}
                   />
                   
-                  {/* Work In Progress Ribbon */}
-                  {project.isWorkInProgress && (
-                    <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl flex items-center justify-center">
-                      <div className="w-[120%] h-16 transform -rotate-6 shadow-lg">
-                        {/* Black and white diagonal stripes background */}
-                        <div className="absolute inset-0 flex">
-                          {[...Array(20)].map((_, i) => (
-                            <div
-                              key={i}
-                              className={`flex-1 ${i % 2 === 0 ? 'bg-black' : 'bg-white'}`}
-                              style={{ transform: 'skewX(-45deg)' }}
-                            />
-                          ))}
-                        </div>
-                        {/* Yellow background for text */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="bg-yellow-400 px-8 py-2 border-y-2 border-black">
-                            <span className="text-black font-bold text-lg tracking-wider whitespace-nowrap">
-                              WORK IN PROGRESS
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+                  {/* Work In Progress Badge */}
+                  {project.inProgress && (
+                    <div className="absolute top-0 right-0 w-0 h-0 border-t-[80px] border-l-[80px] border-t-[#FFD700] border-l-transparent">
+                      <span className="absolute -top-[68px] right-[5px] text-black text-xs font-bold rotate-45 origin-center">
+                        Work In Progress
+                      </span>
                     </div>
                   )}
-
-                  
-                {/* Buttons Container */}
-                <div className="flex gap-3">
-                  <button className="flex-1 bg-[#2A9D8F] text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#238B7A] transition-colors duration-300 font-inter">
-                    Checkout Website
-                  </button>
-                  <button className="flex-1 bg-white text-[#2A9D8F] border-2 border-[#2A9D8F] font-semibold py-3 px-4 rounded-lg hover:bg-[#2A9D8F] hover:text-white transition-all duration-300 font-inter">
-                    Explore Case Study
-                  </button>
-                </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default ProjectsSection;
+export default ProjectShowcase;

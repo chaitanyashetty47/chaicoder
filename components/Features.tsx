@@ -57,10 +57,10 @@ const WhatSetsUsApart = () => {
                 <div className="mb-4">
                   <Icon className="w-16 h-16 text-[#2A9D8F]" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-bold text-text-brown mb-3">
+                <h3 className="text-xl font-bold text-text-dark mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-text-dark/80 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

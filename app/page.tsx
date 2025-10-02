@@ -1,8 +1,13 @@
 import HeroSection from "@/components/HeroSection";
 import Header from "@/components/Header";
+import TrustedByCarousel from "@/components/TrustedByCarousel";
+import TestimonialSection from "@/components/TestimonialSection";
 import ProjectsSection from "@/components/ProjectSection";
 import WhatSetsUsApartSection from "@/components/Features";
 import ProcessSection from "@/components/OurProcess";
+import PricingSection from "@/components/Pricing";
+import FAQSection from "@/components/ui/faq-section";
+import Footer from "@/components/Footer";
 
 export default function App() {
 
@@ -13,9 +18,14 @@ export default function App() {
       <div className="relative z-10">
         <Header />
         <HeroSection />
-        <ProjectsSection />
+        <TrustedByCarousel />
         <WhatSetsUsApartSection />
+        <ProjectsSection />
         <ProcessSection /> 
+        <PricingSection />
+        <TestimonialSection />
+        <FAQSection />
+        <Footer />
       </div>
     </div>
   );

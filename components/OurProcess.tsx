@@ -18,14 +18,14 @@ const steps = [
   {
     number: "3",
     title: "Development & Testing",
-    description: "We build fast using AI-powered tools (Cursor, CodeRabbit, Lovable) — ensuring lean, secure, and scalable code.",
+    description: "We build fast using AI-powered tools (Cursor, CodeRabbit, Lovable), ensuring lean, secure, and scalable code.",
     icon: Code,
     color: "bg-[#FFB5D8]",
   },
   {
     number: "4",
     title: "Launch",
-    description: "Your MVP goes live — ready to gather real user feedback or pitch confidently to investors.",
+    description: "Your MVP goes live, ready to gather real user feedback or pitch confidently to investors.",
     icon: Rocket,
     color: "bg-[#FFF4B5]",
   },
@@ -47,7 +47,7 @@ const OurProcess = () => {
             Our 5-Step MVP Blueprint
           </h2>
           <p className="text-lg md:text-xl text-text-dark max-w-4xl mx-auto">
-            A lean, market-ready MVP in 5 proven phases — designed to save time, cut costs, and maximize impact.
+            A lean, market-ready MVP in 5 proven phases, designed to save time, cut costs, and maximize impact.
           </p>
         </div>
 
@@ -76,10 +76,10 @@ const OurProcess = () => {
                   >
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold text-text-brown mb-2">
+                        <h3 className="text-xl md:text-2xl font-bold text-text-dark mb-2">
                           {step.title}
                         </h3>
-                        <p className="text-sm md:text-base text-text-brown/80 leading-relaxed">
+                        <p className="text-sm md:text-base text-text-dark/80 leading-relaxed">
                           {step.description}
                         </p>
                       </div>
