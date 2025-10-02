@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { Card, CardContent } from '@/components/ui/card';
 
 const TestimonialSection: React.FC = () => {
@@ -77,16 +76,13 @@ const TestimonialSection: React.FC = () => {
               <CardContent className="p-8">
                 {/* Tweet Embed */}
                 <div className="mb-6">
-                  <TwitterTweetEmbed 
-                    tweetId="1972354853524697181"
-                    options={{
-                      theme: 'light',
-                      width: '100%',
-                      height: 'auto',
-                      cards: 'hidden',
-                      conversation: 'none'
-                    }}
-                  />
+                  <blockquote className="twitter-tweet" data-theme="light">
+                    <p lang="en" dir="ltr">
+                      Working with <a href="https://twitter.com/thechaicoder">@thechaicoder</a> was an absolute game-changer for our project! 🚀 The attention to detail, speed of delivery, and technical expertise exceeded our expectations. Highly recommend for anyone looking to build an MVP or scale their product.
+                    </p>
+                    <a href="https://twitter.com/Spopeer/status/1972354853524697181?ref_src=twsrc%5Etfw">December 15, 2024</a>
+                  </blockquote>
+                  <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                 </div>
 
                 {/* Author Info */}
