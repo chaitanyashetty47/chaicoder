@@ -7,7 +7,7 @@ import { Timer, Gauge, Headset} from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   return (
-    <section id="hero" className="flex flex-col items-center justify-start text-center min-h-screen px-4 pt-8">
+    <section id="hero" className="flex flex-col items-center justify-start text-center px-4 pt-8 pb-8">
       <RadarBadge />
       
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary-orange font-sansation mb-4 leading-tight">

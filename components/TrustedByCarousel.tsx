@@ -20,7 +20,7 @@ export default function TrustedByCarousel() {
   return (
     // <Card className="mx-4 my-8 border-chai-cream  backdrop-blur-sm">
     //   <CardContent className="pt-6">
-      <div className="mx-4 my-8 border-chai-cream  backdrop-blur-sm">
+      <div className="mx-4 mt-4 mb-8 border-chai-cream  backdrop-blur-sm">
         <div className="text-center space-y-4 mb-12">
           <p className="text-sm font-medium tracking-widest text-text-dark">
             TRUSTED BY TEAMS FROM AROUND THE WORLD

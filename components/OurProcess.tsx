@@ -53,7 +53,7 @@ const OurProcess = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-6 md:left-12 top-0 bottom-0 w-1 bg-border" />
+          {/* <div className="absolute left-6 md:left-12 top-0 bottom-0 w-1 bg-border" /> */}
 
           {/* Timeline steps */}
           <div className="space-y-8">
