@@ -155,7 +155,7 @@ const PricingSection: React.FC = () => {
             </h3>
             <div className="text-sm text-[#666666] font-inter mt-1">Starting at</div>
             <div className="text-4xl font-bold text-[#E07A5F] font-sansation">
-              $3499<span className="text-lg text-[#3D2C20]">/mo</span>
+              $1999<span className="text-lg text-[#3D2C20]">/mo</span>
             </div>
           </div>
 
