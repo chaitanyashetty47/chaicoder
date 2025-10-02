@@ -40,31 +40,28 @@ const steps = [
 
 const OurProcess = () => {
   return (
-    <section className="py-16 px-6">
+    <section className="py-12 md:py-16 px-4 md:px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-orange mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
             Our 5-Step MVP Blueprint
           </h2>
-          <p className="text-lg md:text-xl text-text-dark max-w-4xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-4xl mx-auto px-2">
             A lean, market-ready MVP in 5 proven phases, designed to save time, cut costs, and maximize impact.
           </p>
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
-          {/* <div className="absolute left-6 md:left-12 top-0 bottom-0 w-1 bg-border" /> */}
-
           {/* Timeline steps */}
-          <div className="space-y-8">
+          <div className="space-y-4 md:space-y-6 lg:space-y-8">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={index} className="relative flex items-start gap-6 md:gap-8">
+                <div key={index} className="relative flex items-start gap-3 md:gap-6 lg:gap-8">
                   {/* Step number circle */}
                   <div className="relative z-10 flex-shrink-0">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-4 border-background bg-teal flex items-center justify-center shadow-lg">
-                      <span className="text-lg md:text-2xl font-bold text-white">
+                    <div className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-full border-3 md:border-4 border-background bg-teal flex items-center justify-center shadow-lg">
+                      <span className="text-sm md:text-lg lg:text-2xl font-bold text-white">
                         {step.number}
                       </span>
                     </div>
@@ -72,19 +69,19 @@ const OurProcess = () => {
 
                   {/* Card */}
                   <div
-                    className={`flex-1 rounded-full ${step.color} p-6 md:p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
+                    className={`flex-1 rounded-2xl md:rounded-3xl lg:rounded-full ${step.color} p-4 md:p-6 lg:p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
                   >
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-start md:items-center justify-between gap-3 md:gap-4">
                       <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold text-text-dark mb-2">
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-text-dark mb-1 md:mb-2">
                           {step.title}
                         </h3>
-                        <p className="text-sm md:text-base text-text-dark/80 leading-relaxed">
+                        <p className="text-xs md:text-sm lg:text-base text-text-dark/80 leading-relaxed">
                           {step.description}
                         </p>
                       </div>
-                      <div className="flex-shrink-0 hidden md:block">
-                        <Icon className="w-12 h-12 text-text-brown/60" strokeWidth={1.5} />
+                      <div className="flex-shrink-0 hidden sm:block">
+                        <Icon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-text-brown/60" strokeWidth={1.5} />
                       </div>
                     </div>
                   </div>
