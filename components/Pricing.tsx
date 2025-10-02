@@ -26,7 +26,7 @@ const PricingSection: React.FC = () => {
               Landing Page Starter
             </h3>
             <div className="text-4xl font-bold text-[#E07A5F] font-sansation">
-              $799
+              $749
             </div>
           </div>
 
@@ -94,7 +94,7 @@ const PricingSection: React.FC = () => {
               MVP Starter
             </h3>
             <div className="text-4xl font-bold text-[#E07A5F] font-sansation">
-              $1500
+              $1499
             </div>
           </div>
 
@@ -142,14 +142,20 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* Custom Solutions - Right Card */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300">
-          <div className="text-center mb-6">
+        <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300 relative">
+          {/* Recommended Badge */}
+          <div className="absolute -top-3 right-4">
+            <div className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-[#3D2C20] px-3 py-1 rounded-full text-xs font-semibold font-inter shadow-sm">
+              Recommended by Founders
+            </div>
+          </div>
+          <div className="text-center mb-6 mt-2">
             <h3 className="text-xl font-bold text-[#3D2C20] font-sansation mb-2">
               Custom Solutions
             </h3>
             <div className="text-sm text-[#666666] font-inter mt-1">Starting at</div>
             <div className="text-4xl font-bold text-[#E07A5F] font-sansation">
-              $4000<span className="text-lg text-[#3D2C20]">/mo</span>
+              $3499<span className="text-lg text-[#3D2C20]">/mo</span>
             </div>
           </div>
 
@@ -184,7 +190,7 @@ const PricingSection: React.FC = () => {
               <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm text-[#3D2C20] font-inter">Targeted 90-day delivery</span>
+              <span className="text-sm text-[#3D2C20] font-inter">Targeted 90-day delivery for initial launch</span>
             </div>
             <div className="flex items-start gap-3">
               <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">

@@ -26,7 +26,7 @@ const TestimonialSection: React.FC = () => {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Left Testimonial - Text Review */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -35,7 +35,7 @@ const TestimonialSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <Card className="h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-teal/5">
-              <CardContent className="p-8">
+              <CardContent className="p-4 md:p-8">
                 {/* Quote Icon */}
                 <div className="mb-6">
                   <svg 
@@ -48,13 +48,13 @@ const TestimonialSection: React.FC = () => {
                 </div>
 
                 {/* Review Text */}
-                <blockquote className="text-lg text-text-dark font-inter leading-relaxed mb-8">
+                <blockquote className="text-base md:text-lg text-text-dark font-inter leading-relaxed mb-6 md:mb-8">
                   &ldquo;Working with Chaitanya was a fantastic experience. His enthusiasm, attention to detail, and ability to automate and integrate complex features into our site helped us tremendously. I highly recommend working with Chaitanya if you want to build a website or MVP tailored to your business needs.&rdquo;
                 </blockquote>
 
                 {/* Author Info */}
                 <div className="border-t border-gray-100 pt-6">
-                  <p className="text-primary-orange font-semibold font-inter text-lg">
+                  <p className="text-primary-orange font-semibold font-inter text-base md:text-lg">
                     Aditya Mandan
                   </p>
                   <p className="text-text-dark/70 font-inter">
@@ -73,7 +73,7 @@ const TestimonialSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <Card className="h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-teal/5">
-              <CardContent className="p-8">
+              <CardContent className="p-4 md:p-8">
                 {/* Tweet Embed */}
                 <div className="mb-6">
                   <blockquote className="twitter-tweet" data-theme="light">
@@ -87,7 +87,7 @@ const TestimonialSection: React.FC = () => {
 
                 {/* Author Info */}
                 <div className="border-t border-gray-100 pt-6">
-                  <p className="text-primary-orange font-semibold font-inter text-lg">
+                  <p className="text-primary-orange font-semibold font-inter text-base md:text-lg">
                     Erdit Bushati
                   </p>
                   <p className="text-text-dark/70 font-inter">
