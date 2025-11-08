@@ -15,22 +15,23 @@ const projects = [
   },
   {
     id: 2,
+    title: "Penaltyboxd",
+    tagline: "Football Community",
+    description: "Penaltyboxd is a community-driven platform where fans can rate, review, and discuss matches. Users can log games they've watched, share opinions, and browse insights from others. The goal is to unite football enthusiasts in a dedicated space for engaging discussions and reviews.",
+    image: "/penatyboxd-hero.jpg",
+    link: "https://www.penaltyboxd.com",
+    inProgress: false,
+  },
+  {
+    id: 3,
     title: "Spopeer",
     tagline: "Sports Networking",
     description: "Spopeer is a social platform built to connect sports professionals in one place. Tailored for athletes, coaches, and clubs, it focuses on scalable performance with features like media uploads, profile management, discovery, and connection requests. Designed to evolve with community needs while keeping usability at the center.",
     image: "/spopeer-hero.jpg",
-    link: "https://www.spopeer.com/",
+    link: "https://www.spopeer.com",
     inProgress: true,
   },
-  {
-    id: 3,
-    title: "FootyNote",
-    tagline: "Football Community",
-    description: "FootyNote is a community-driven platform where fans can rate, review, and discuss matches. Users can log games they've watched, share opinions, and browse insights from others. The goal is to unite football enthusiasts in a dedicated space for engaging discussions and reviews.",
-    image: "/footybox.png",
-    link: "#",
-    inProgress: true,
-  },
+  
 ];
 
 const ProjectShowcase = () => {

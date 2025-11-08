@@ -24,7 +24,7 @@ const features = [
   {
     icon: Headphones,
     title: "Post-Launch Support",
-    description: "Free 14-day support to ensure a smooth transition and confident launch.",
+    description: "Free 30-day support to ensure a smooth transition and confident launch.",
   },
   {
     icon: RefreshCw,
