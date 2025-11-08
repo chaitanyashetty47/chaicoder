@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Sansation } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const sansation = Sansation({
-  variable: "--font-sansation",
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
   subsets: ["latin"],
   weight: ["300", "400", "700"],
 });
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sansation.variable} antialiased`}
+        className={`${nunitoSans.variable} antialiased`}
       >
         {children}
       </body>

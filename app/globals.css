@@ -52,6 +52,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-sansation: var(--font-nunito-sans);
 
   /* Brand Colors for Tailwind */
   --color-primary-orange: var(--color-primary-orange);
@@ -97,7 +98,7 @@
 }
 
 body {
-  font-family: var(--font-sansation), Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
