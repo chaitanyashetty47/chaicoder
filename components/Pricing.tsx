@@ -12,7 +12,7 @@ const PricingSection: React.FC = () => {
           🚀 Simple, Transparent Pricing
         </h2>
         <p className="text-base md:text-lg lg:text-xl font-medium text-[#3D2C20] max-w-3xl mx-auto leading-relaxed font-inter">
-          Pick the plan that fits your launch goals—no hidden fees, no surprises.
+          Pick the plan that fits your launch goals, no hidden fees, no surprises.
         </p>
       </div>
 
@@ -26,7 +26,7 @@ const PricingSection: React.FC = () => {
               Landing Page Starter
             </h3>
             <div className="text-4xl font-bold text-[#E07A5F] font-sansation">
-              $749
+              $1499
             </div>
           </div>
 
@@ -93,8 +93,9 @@ const PricingSection: React.FC = () => {
             <h3 className="text-xl font-bold text-[#3D2C20] font-sansation mb-2">
               MVP Starter
             </h3>
+            <div className="text-sm text-[#666666] font-inter ">Starting at</div>
             <div className="text-4xl font-bold text-[#E07A5F] font-sansation">
-              $1499
+              $2749
             </div>
           </div>
 

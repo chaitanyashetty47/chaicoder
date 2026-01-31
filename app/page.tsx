@@ -21,9 +21,9 @@ export default function App() {
         <TrustedByCarousel />
         <WhatSetsUsApartSection />
         <ProjectsSection />
+        <TestimonialSection />
         <ProcessSection /> 
         <PricingSection />
-        <TestimonialSection />
         <FAQSection />
         <Footer />
       </div>

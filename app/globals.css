@@ -122,6 +122,29 @@ body {
   background: #238B7A;
 }
 
+/* Table of Contents scrollbar */
+.toc-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #2A9D8F20 transparent;
+}
+
+.toc-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb {
+  background: #2A9D8F20;
+  border-radius: 3px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #2A9D8F40;
+}
+
 /* Focus states for accessibility */
 button:focus-visible,
 a:focus-visible {
