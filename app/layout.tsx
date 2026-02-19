@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
-import "./globals.css";
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "The Chai Coder",
@@ -20,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${nunitoSans.variable} antialiased`}
-      >
+      <body className="antialiased">
         {children}
       </body>
     </html>

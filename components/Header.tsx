@@ -53,7 +53,7 @@ const Header: React.FC = () => {
         </div>
 
         <div className="hidden lg:block">
-          <button onClick={() => window.open('https://calendly.com/chaitanyashetty47/the-chaicoder-discovery-call', '_blank')} className="bg-[#2A9D8F] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#238B7A] transition-colors duration-300 font-inter hover:cursor-pointer">
+          <button onClick={() => window.open('https://cal.com/chaitanya-shetty-mabufa/30min', '_blank')} className="bg-[#2A9D8F] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#238B7A] transition-colors duration-300 font-inter hover:cursor-pointer">
             Book Your Call
           </button>
         </div>  
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('our-work')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 py-2 text-left hover:cursor-pointer">
               Our Work
             </button>
-            <button onClick={() => window.open('https://calendly.com/chaitanyashetty47/the-chaicoder-discovery-call', '_blank')} className="bg-[#2A9D8F] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#238B7A] transition-colors duration-300 font-inter mt-4 self-start hover:cursor-pointer">
+            <button onClick={() => window.open('https://cal.com/chaitanya-shetty-mabufa/30min', '_blank')} className="bg-[#2A9D8F] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#238B7A] transition-colors duration-300 font-inter mt-4 self-start hover:cursor-pointer">
               Book Your Call
             </button>
           </div>

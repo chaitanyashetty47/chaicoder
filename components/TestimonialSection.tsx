@@ -1,10 +1,16 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 
 const TestimonialSection: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section id="testimonials" className="py-16 px-4">
@@ -74,15 +80,26 @@ const TestimonialSection: React.FC = () => {
           >
             <Card className="h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-teal/5">
               <CardContent className="p-4 md:p-8">
-                {/* Tweet Embed */}
+                {/* Tweet Embed - render only on client to avoid hydration mismatch from Twitter script */}
                 <div className="mb-6">
-                  <blockquote className="twitter-tweet" data-theme="light">
-                    <p lang="en" dir="ltr">
-                      Working with <a href="https://twitter.com/thechaicoder">@thechaicoder</a> was an absolute game-changer for our project! 🚀 The attention to detail, speed of delivery, and technical expertise exceeded our expectations. Highly recommend for anyone looking to build an MVP or scale their product.
-                    </p>
-                    <a href="https://twitter.com/Spopeer/status/1972354853524697181?ref_src=twsrc%5Etfw">December 15, 2024</a>
-                  </blockquote>
-                  <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+                  {mounted ? (
+                    <>
+                      <blockquote className="twitter-tweet" data-theme="light">
+                        <p lang="en" dir="ltr">
+                          Working with <a href="https://twitter.com/thechaicoder">@thechaicoder</a> was an absolute game-changer for our project! 🚀 The attention to detail, speed of delivery, and technical expertise exceeded our expectations. Highly recommend for anyone looking to build an MVP or scale their product.
+                        </p>
+                        <a href="https://twitter.com/Spopeer/status/1972354853524697181?ref_src=twsrc%5Etfw">December 15, 2024</a>
+                      </blockquote>
+                      <Script
+                        src="https://platform.twitter.com/widgets.js"
+                        strategy="lazyOnload"
+                      />
+                    </>
+                  ) : (
+                    <div className="min-h-[200px] flex items-center justify-center text-text-dark/60">
+                      Loading tweet...
+                    </div>
+                  )}
                 </div>
 
                 {/* Author Info */}

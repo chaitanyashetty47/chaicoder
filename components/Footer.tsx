@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           {/* Center - Copyright */}
           <div className="text-center">
             <p className="text-text-dark font-inter">
-              © 2025 The Chai Coder. All rights reserved.
+              © 2026 The Chai Coder. All rights reserved.
             </p>
           </div>
 

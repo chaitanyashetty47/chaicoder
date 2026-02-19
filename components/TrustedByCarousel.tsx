@@ -7,13 +7,26 @@ const trustedLogos = [
   { 
     id: 1, 
     name: "Spopeer", 
-    src: "/spopeer-logo.svg" 
+    src: "/spopeer-no-logo.png" 
   },
   { 
     id: 2, 
     name: "Strentor", 
-    src: "/strentor-logo.svg" 
+    src: "/str-compressed.png",
+    // width: 501,  // 3x the default width (167 * 3)
+    // height: 96,  // 3x the default height (32 * 3)
+    // className: "h-24 w-auto object-contain"  // 3x the default height class (h-8 * 3 = h-24)
   },
+  {
+    id: 3,
+    name: "Penaltyboxd",
+    src: "/penaltyboxd-logo.png",
+  },
+  {
+    id: 4,
+    name: "Pytch",
+    src: "/pytch-logo.png",
+  }
 ];
 
 export default function TrustedByCarousel() {
@@ -29,7 +42,7 @@ export default function TrustedByCarousel() {
             The best are already here
           </h2>
         </div>
-        <LogoCarousel logos={trustedLogos} columns={1} />
+        <LogoCarousel logos={trustedLogos} />
       </div>
     //   </CardContent>
     // </Card>
