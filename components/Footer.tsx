@@ -1,103 +1,108 @@
 "use client";
 
-import React from 'react';
-import { Twitter } from 'lucide-react';
+import React from "react";
+import Image from "next/image";
+import { Twitter } from "lucide-react";
 
 const Footer: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  const openBooking = () => {
+    window.open("https://cal.com/chaitanya-shetty-mabufa/30min", "_blank");
+  };
+
   return (
-    <footer className="bg-gradient-to-r from-chai-foam to-chai-light border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Desktop Layout - Hidden on Mobile */}
-        <div className="hidden md:grid grid-cols-3 gap-8 items-center">
-          
-          {/* Left - Navigation Links */}
-          <div className="flex flex-row gap-8">
-            <button 
-              onClick={() => scrollToSection('our-work')}
-              className="text-text-dark hover:text-primary-orange transition-colors duration-300 font-inter font-medium"
-            >
-              Our Work
-            </button>
-            <button 
-              onClick={() => scrollToSection('testimonials')}
-              className="text-text-dark hover:text-primary-orange transition-colors duration-300 font-inter font-medium"
-            >
-              Testimonials
-            </button>
-            <button 
-              onClick={() => scrollToSection('pricing')}
-              className="text-text-dark hover:text-primary-orange transition-colors duration-300 font-inter font-medium"
+    <footer
+      className="mt-20 bg-teal text-white rounded-t-3xl"
+      aria-labelledby="footer-heading"
+    >
+      <div className="max-w-6xl mx-auto px-4 py-10 md:py-12">
+        {/* Top CTA + navigation */}
+        <section
+          className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between"
+          aria-label="Footer primary actions and navigation"
+        >
+          {/* Left: Logo + CTA */}
+          <div className="max-w-md space-y-4">
+            <div className="flex items-center">
+              <Image
+                src="/chaicoder_logo_whitet_bg.png"
+                alt="The Chai Coder"
+                width={312}
+                height={180}
+                className="h-28 w-auto"
+                priority
+              />
+            </div>
+            <div>
+              <h2
+                id="footer-heading"
+                className="text-2xl md:text-3xl font-bold tracking-tight"
+              >
+                Start Your Project Today
+              </h2>
+            </div>
+            <div>
+              <button
+                type="button"
+                onClick={openBooking}
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 font-inter text-sm md:text-base font-semibold text-neutral-900 shadow-sm transition-colors duration-300 hover:bg-neutral-100 hover:cursor-pointer"
+              >
+                Book Your Call
+              </button>
+            </div>
+          </div>
+
+          {/* Right: Navigation links */}
+          <nav
+            className="flex flex-col items-start gap-2 text-sm md:text-base md:items-end"
+            aria-label="Footer site links"
+          >
+            <button
+              onClick={() => scrollToSection("pricing")}
+              className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
             >
               Pricing
             </button>
-          </div>
-
-          {/* Center - Copyright */}
-          <div className="text-center">
-            <p className="text-text-dark font-inter">
-              © 2026 The Chai Coder. All rights reserved.
-            </p>
-          </div>
-
-          {/* Right - Social Media */}
-          <div className="flex justify-end">
-            <a 
-              href="https://twitter.com/chaitanyashetty" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-text-dark hover:text-primary-orange transition-colors duration-300 group"
+            <button
+              onClick={() => scrollToSection("testimonials")}
+              className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
             >
-              <div className="p-2 bg-white rounded-full shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                <Twitter className="w-5 h-5" />
-              </div>
-              <span className="font-inter font-medium">Stay Connected</span>
-            </a>
-          </div>
-        </div>
+              Testimonials
+            </button>
+            <button
+              onClick={() => scrollToSection("our-work")}
+              className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
+            >
+              Our Work
+            </button>
+          </nav>
+        </section>
 
-        {/* Mobile Layout - Stacked */}
-        <div className="md:hidden mt-8 pt-8 border-t border-gray-200">
-          <div className="text-center space-y-4">
-            <div className="flex justify-center gap-6">
-              <button 
-                onClick={() => scrollToSection('our-work')}
-                className="text-text-dark hover:text-primary-orange transition-colors duration-300 font-inter font-medium"
-              >
-                Our Work
-              </button>
-              <button 
-                onClick={() => scrollToSection('testimonials')}
-                className="text-text-dark hover:text-primary-orange transition-colors duration-300 font-inter font-medium"
-              >
-                Testimonials
-              </button>
-              <button 
-                onClick={() => scrollToSection('pricing')}
-                className="text-text-dark hover:text-primary-orange transition-colors duration-300 font-inter font-medium"
-              >
-                Pricing
-              </button>
+        {/* Divider */}
+        <div className="mt-10 border-t border-teal-200/40" />
+
+        {/* Bottom bar */}
+        <div className="mt-4 flex flex-col items-center justify-between gap-4 text-xs md:flex-row md:text-sm">
+          <p className="font-inter text-teal-50/80">
+            © {new Date().getFullYear()} The Chai Coder. All rights reserved.
+          </p>
+          <a
+            href="https://x.com/thechaicoder"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors duration-300 group"
+          >
+            <div className="p-2 bg-black/80 rounded-full shadow-sm group-hover:shadow-md transition-shadow duration-300">
+              <Twitter className="w-4 h-4 text-white" />
             </div>
-            
-            <a 
-              href="https://x.com/thechaicoder" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-text-dark hover:text-primary-orange transition-colors duration-300 group"
-            >
-              <div className="p-2 bg-white rounded-full shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                <Twitter className="w-5 h-5" />
-              </div>
-              <span className="font-inter font-medium">Stay Connected</span>
-            </a>
-          </div>
+            <span className="font-inter font-medium">Follow on X</span>
+          </a>
         </div>
       </div>
     </footer>

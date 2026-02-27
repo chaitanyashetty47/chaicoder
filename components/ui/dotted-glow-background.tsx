@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 type DottedGlowBackgroundProps = {
   className?: string;
+  /** Pause animation when element is off-screen (saves CPU during scroll) */
+  pauseWhenOffScreen?: boolean;
   /** distance between dot centers in pixels */
   gap?: number;
   /** base radius of each dot in CSS px */
@@ -44,6 +46,7 @@ type DottedGlowBackgroundProps = {
  */
 export const DottedGlowBackground = ({
   className,
+  pauseWhenOffScreen = false,
   gap = 12,
   radius = 2,
   color = "rgba(0,0,0,0.7)",
@@ -62,6 +65,7 @@ export const DottedGlowBackground = ({
 }: DottedGlowBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const isInViewRef = useRef(true);
   const [resolvedColor, setResolvedColor] = useState<string>(color);
   const [resolvedGlowColor, setResolvedGlowColor] = useState<string>(glowColor);
 
@@ -148,6 +152,25 @@ export const DottedGlowBackground = ({
     glowColorDarkVar,
   ]);
 
+  // Pause animation when off-screen to reduce CPU during scroll
+  useEffect(() => {
+    if (!pauseWhenOffScreen) {
+      isInViewRef.current = true;
+      return;
+    }
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInViewRef.current = entry.isIntersecting;
+      },
+      { rootMargin: "100px", threshold: 0 }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [pauseWhenOffScreen]);
+
   useEffect(() => {
     const el = canvasRef.current;
     const container = containerRef.current;
@@ -207,6 +230,11 @@ export const DottedGlowBackground = ({
 
     const draw = (now: number) => {
       if (stopped) return;
+      // Skip expensive canvas work when off-screen (saves CPU during scroll)
+      if (pauseWhenOffScreen && !isInViewRef.current) {
+        raf = requestAnimationFrame(draw);
+        return;
+      }
       const dt = (now - last) / 1000; // seconds
       last = now;
       const { width, height } = container.getBoundingClientRect();
@@ -289,6 +317,7 @@ export const DottedGlowBackground = ({
     speedMin,
     speedMax,
     speedScale,
+    pauseWhenOffScreen,
   ]);
 
   return (

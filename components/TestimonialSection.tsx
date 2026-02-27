@@ -17,16 +17,16 @@ const TestimonialSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-10"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-orange font-sansation mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
             What Clients Say
           </h2>
-          <p className="text-lg text-text-dark font-inter">
+          <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-2xl mx-auto">
             Hear from the founders who trusted us with their vision
           </p>
         </motion.div>

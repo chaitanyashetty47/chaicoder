@@ -1,20 +1,13 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
 import { MessageCircle, MapPin, Code, Rocket } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-
-// ─── Types ───────────────────────────────────────────────
 
 interface StepData {
   title: string;
   description: string;
   icon: LucideIcon;
-  side: "left" | "right";
 }
-
-// ─── Step Data ───────────────────────────────────────────
 
 const steps: StepData[] = [
   {
@@ -22,157 +15,39 @@ const steps: StepData[] = [
     description:
       "Kick things off with a discovery session to clarify your vision, goals, and requirements.",
     icon: MessageCircle,
-    side: "left",
   },
   {
     title: "Planning & Roadmap",
     description:
       "In one week, we define scope, prioritize features, and craft a roadmap for your MVP launch.",
     icon: MapPin,
-    side: "right",
   },
   {
     title: "Development & Testing",
     description:
       "We build fast using AI-powered tools (Cursor, CodeRabbit, Lovable), ensuring lean, secure, and scalable code.",
     icon: Code,
-    side: "left",
   },
   {
     title: "Launch",
     description:
       "Your MVP goes live, ready to gather real user feedback or pitch confidently to investors.",
     icon: Rocket,
-    side: "right",
   },
 ];
 
-/* ── Commented out: Post-Launch Support (kept for reference) ──
-  {
-    number: "5",
-    title: "Post-Launch Support",
-    description:
-      "We don't stop at launch. Expect bug fixes, iterations, and guidance to keep your MVP growing.",
-    icon: Headphones, // import { Headphones } from "lucide-react"
-    color: "bg-[#E5D4FF]",
-  },
-*/
-
-// ─── SVG Configuration (viewBox: 0 0 1000 650) ──────────
-
-// Card centers derived from CARD_POSITIONS (top 5/30/52/74%, left/right 3%, width 38%)
-const CARD_CENTERS = [
-  { x: 220, y: 75 },   // Card 0: top-left
-  { x: 780, y: 195 },  // Card 1: top-right
-  { x: 220, y: 338 },  // Card 2: middle-left
-  { x: 780, y: 481 },  // Card 3: bottom-right
+// Col 1 & 3: icon top, text bottom. Col 2 & 4: text top, icon bottom.
+const COL_LAYOUT: ("icon" | "text")[][] = [
+  ["icon", "text"], // col 1
+  ["text", "icon"], // col 2
+  ["icon", "text"], // col 3
+  ["text", "icon"], // col 4
 ];
 
-// Single serpentine path: start at card 0 → card 1 → card 2 → card 3 (ends at final card)
-const SERPENTINE_PATH = [
-  "M 220 75",                           // start at card 0 (top-left)
-  "C 100 120, 900 170, 780 195",       // S-curve to card 1 (top-right)
-  "C 900 260, 100 310, 220 338",       // S-curve to card 2 (middle-left)
-  "C 100 380, 900 440, 780 481",       // to card 3 (bottom-right) — path ends here
-].join(" ");
-
-// Waypoints along path for junction dots (at each card)
-const WAYPOINTS = CARD_CENTERS;
-
-// ─── Animation Timing ────────────────────────────────────
-const CYCLE_DURATION = 5;
-const TRAIL_LENGTH = 0.1; // 10% of path for trailing head
-// Hit fractions: when trailing line reaches each card (path ends at card 3)
-const CARD_HIT_FRACTIONS = [0.25, 0.5, 0.75, 0.95];
-
-const CARD_POSITIONS: { top: string; left?: string; right?: string }[] = [
-  { top: "5%", left: "3%" },
-  { top: "30%", right: "3%" },
-  { top: "52%", left: "3%" },
-  { top: "74%", right: "3%" },
-];
-
-// ─── StepCard ────────────────────────────────────────────
-
-function StepCard({ step, isHighlighted = false }: { step: StepData; isHighlighted?: boolean }) {
-  const Icon = step.icon;
-
-  return (
-    <div className="relative">
-      {/* Backing layer — slightly darker, offset below/right for 3D bottom corner */}
-      <div
-        className="absolute inset-0 -z-10 rounded-2xl bg-gray-400 translate-y-2"
-        aria-hidden
-      />
-      {/* Main card — hover styles also applied when trail hits (isHighlighted) */}
-      <div
-        className={`
-          relative z-0
-          bg-white
-          rounded-2xl
-          p-5
-          transition-all duration-300
-          shadow-[0_1px_3px_rgba(0,0,0,0.04)]
-          hover:shadow-[0_2px_6px_rgba(0,0,0,0.06)]
-          hover:-translate-y-0.5
-          ${isHighlighted ? "shadow-[0_2px_6px_rgba(0,0,0,0.06)] -translate-y-0.5" : ""}
-        `}
-        >
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-11 h-11 rounded-full bg-teal/15 flex items-center justify-center">
-            <Icon className="w-6 h-6 text-teal" strokeWidth={2} />
-          </div>
-
-          <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-bold text-gray-900 mb-1.5">
-              {step.title}
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {step.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-// ─── OurProcess Component ────────────────────────────────
-
-const OurProcess = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
-  const progress = useMotionValue(0);
-  const strokeDashOffsetMotion = useTransform(progress, (p) => -p);
-  const [activeCardIndex, setActiveCardIndex] = useState(-1);
-
-  // Progress-driven animation loop: 0→1 over CYCLE_DURATION, looping
-  useEffect(() => {
-    if (!isInView) return;
-    const start = performance.now();
-    let rafId: number;
-
-    const tick = () => {
-      const elapsed = (performance.now() - start) / 1000;
-      const p = (elapsed % CYCLE_DURATION) / CYCLE_DURATION;
-      progress.set(p);
-
-      // Compute active card: trail hits when progress crosses hit fraction
-      const hitWindow = 0.1;
-      const idx = CARD_HIT_FRACTIONS.findIndex(
-        (frac) => p >= frac - hitWindow && p <= frac + hitWindow
-      );
-      setActiveCardIndex(idx >= 0 ? idx : -1);
-
-      rafId = requestAnimationFrame(tick);
-    };
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, [isInView, progress]);
-
+export default function OurProcess() {
   return (
     <section className="py-12 md:py-16 px-4 md:px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
             Our 4-Step MVP Blueprint
@@ -183,155 +58,228 @@ const OurProcess = () => {
           </p>
         </div>
 
-        {/* ── Desktop: Animated Journey Tree ── */}
-        <div
-          ref={containerRef}
-          className="hidden lg:block relative border-[3px] border-gray-800 rounded-[28px] bg-chai-foam/60 shadow-[5px_5px_0px_0px_rgba(31,41,55,0.12)] overflow-visible"
-          style={{ aspectRatio: "1000 / 650" }}
-        >
-          {/* SVG Paths Layer */}
+        {/* Desktop: 4-column grid, 2 rows — icon + text per column, no cards */}
+        <div className="hidden lg:block relative">
+          {/* Simple dotted line from node 1 to node 2 */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 1000 650"
-            fill="none"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden
           >
-            <defs>
-              {/* Teal neon gradient — bright cyan head fading to teal tail */}
-              <linearGradient id="tealTrail" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#5EEAD4" />
-                <stop offset="40%" stopColor="#2DD4BF" />
-                <stop offset="100%" stopColor="#2DD4BF" stopOpacity={0} />
-              </linearGradient>
-
-              {/* Multi-layer neon glow: outer aura → inner glow → sharp core */}
-              <filter
-                id="neonGlow"
-                x="-80%"
-                y="-80%"
-                width="260%"
-                height="260%"
-              >
-                <feGaussianBlur
-                  in="SourceGraphic"
-                  stdDeviation="14"
-                  result="outerGlow"
-                />
-                <feGaussianBlur
-                  in="SourceGraphic"
-                  stdDeviation="5"
-                  result="innerGlow"
-                />
-                <feMerge>
-                  <feMergeNode in="outerGlow" />
-                  <feMergeNode in="innerGlow" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            {/* Serpentine path — black dotted line (always visible) */}
+            <style>
+              {`
+                @keyframes traceLine1 {
+                  0% { opacity: 0; }
+                  10% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { opacity: 0; }
+                }
+                @keyframes traceLine2 {
+                  0%, 30% { opacity: 0; }
+                  40% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { opacity: 0; }
+                }
+                @keyframes traceLine3 {
+                  0%, 60% { opacity: 0; }
+                  70% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { opacity: 0; }
+                }
+                .trace-line-1 {
+                  animation: traceLine1 6s ease-in-out infinite;
+                  opacity: 0;
+                }
+                .trace-line-2 {
+                  animation: traceLine2 6s ease-in-out infinite;
+                  opacity: 0;
+                }
+                .trace-line-3 {
+                  animation: traceLine3 6s ease-in-out infinite;
+                  opacity: 0;
+                }
+              `}
+            </style>
+            {/* Slight curve: col 1 row 1 right center → col 2 row 2 left center */}
             <path
-              d={SERPENTINE_PATH}
-              stroke="#1f2937"
-              strokeWidth={4.5}
-              strokeLinecap="round"
-              strokeDasharray="8 8"
+              className="trace-line-1"
+              d="M 13 27 Q 26 30 40 75"
               fill="none"
+              stroke="oklch(0.24 0.04 56)"
+              strokeWidth="0.6"
+              strokeDasharray="1 2"
+              strokeLinecap="round"
+            />
+            {/* Slight curve (opposite direction): col 2 row 2 right center → col 3 row 1 left center */}
+            <path
+              className="trace-line-2"
+              d="M 38 70 Q 49 63 60 27"
+              fill="none"
+              stroke="oklch(0.24 0.04 56)"
+              strokeWidth="0.6"
+              strokeDasharray="1 2"
+              strokeLinecap="round"
             />
 
-            {/* Solid teal trail — left behind as trailing line moves (progress-driven) */}
-            <motion.path
-              d={SERPENTINE_PATH}
-              stroke="#2DD4BF"
-              strokeWidth={4.5}
-              strokeLinecap="round"
+            {/* Slight curve (same as 1→2): col 3 row 1 right center → col 4 row 2 left center */}
+            <path
+              className="trace-line-3"
+              d="M 65 29 Q 77 38 88 75"
               fill="none"
-              pathLength={1}
-              style={{ pathLength: progress }}
-            />
-
-            {/* Trailing teal line — neon bloom (outer aura + inner glow + main stroke), progress-driven */}
-            <motion.path
-              d={SERPENTINE_PATH}
-              stroke="url(#tealTrail)"
-              strokeWidth={4}
+              stroke="oklch(0.24 0.04 56)"
+              strokeWidth="0.6"
+              strokeDasharray="1 2"
               strokeLinecap="round"
-              fill="none"
-              filter="url(#neonGlow)"
-              pathLength={1}
-              style={{
-                strokeDasharray: `${TRAIL_LENGTH} ${1 - TRAIL_LENGTH}`,
-                strokeDashoffset: strokeDashOffsetMotion,
-              }}
             />
-            {/* Shiny white core — thin bright line on top for "hot" energy effect */}
-            <motion.path
-              d={SERPENTINE_PATH}
-              stroke="#99F6E4"
-              strokeWidth={2}
-              strokeLinecap="round"
-              fill="none"
-              pathLength={1}
-              style={{
-                strokeDasharray: `${TRAIL_LENGTH} ${1 - TRAIL_LENGTH}`,
-                strokeDashoffset: strokeDashOffsetMotion,
-              }}
-            />
-
-            {/* Waypoint dots at each card */}
-            {WAYPOINTS.map((w, i) => (
-              <circle
-                key={`waypoint-${i}`}
-                cx={w.x}
-                cy={w.y}
-                r={7}
-                fill="#1f2937"
-                stroke="#ffffff"
-                strokeWidth={2.5}
-              />
-            ))}
           </svg>
-
-          {/* Step Cards */}
-          {steps.map((step, i) => (
-            <div
-              key={step.title}
-              className="absolute"
-              style={{ ...CARD_POSITIONS[i], width: "38%" }}
-            >
-              <StepCard step={step} isHighlighted={i === activeCardIndex} />
-            </div>
-          ))}
+          <div className="relative grid grid-cols-4 gap-x-6 gap-y-8 border-2 border-gray-800 rounded-2xl bg-chai-foam/60 p-8 shadow-[5px_5px_0px_0px_rgba(31,41,55,0.12)] min-h-[280px]">
+          {steps.map((step, colIndex) => {
+            const Icon = step.icon;
+            const layout = COL_LAYOUT[colIndex];
+            return (
+              <div
+                key={step.title}
+                className="grid grid-rows-[1fr_1fr] gap-4 min-h-[200px]"
+              >
+                {/* Row 1 */}
+                <div
+                  className={`flex flex-col p-4 min-h-[140px] ${
+                    layout[0] === "icon"
+                      ? "items-center justify-end"
+                      : "items-start justify-start text-left"
+                  }`}
+                >
+                  {layout[0] === "icon" ? (
+                    <div className="w-full aspect-square max-w-[90px] rounded-full bg-[oklch(0.94_0.04_185)] border-[7px] border-teal flex items-center justify-center shadow-sm">
+                      <Icon className="w-7 h-7 text-teal" strokeWidth={2} />
+                    </div>
+                  ) : (
+                    <>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                        {String(colIndex + 1).padStart(2, "0")} {step.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </>
+                  )}
+                </div>
+                {/* Row 2 */}
+                <div
+                  className={`flex flex-col p-4 min-h-[140px] ${
+                    layout[1] === "icon"
+                      ? "items-center justify-start"
+                      : "items-start justify-start text-left"
+                  }`}
+                >
+                  {layout[1] === "icon" ? (
+                    <div className="w-full aspect-square max-w-[90px] rounded-full bg-[oklch(0.94_0.04_185)] border-[7px] border-teal flex items-center justify-center shadow-sm">
+                      <Icon className="w-7 h-7 text-teal" strokeWidth={2} />
+                    </div>
+                  ) : (
+                    <>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                        {String(colIndex + 1).padStart(2, "0")} {step.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+          </div>
         </div>
 
-        {/* ── Mobile / Tablet: Simple Timeline ── */}
+        {/* Mobile: vertical list */}
         <div className="lg:hidden relative">
-          {/* Vertical timeline connector */}
-          <div className="absolute left-[19px] top-5 bottom-5 w-[2px] bg-teal/25 rounded-full" />
-
-          <div className="space-y-5">
+          {/* Vertical connecting lines for mobile */}
+          <svg
+            className="absolute left-6 top-0 w-0.5 h-full pointer-events-none"
+            viewBox="0 0 2 100"
+            preserveAspectRatio="none"
+            aria-hidden
+          >
+            <style>
+              {`
+                @keyframes traceLineMobile1 {
+                  0% { opacity: 0; }
+                  10% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { opacity: 0; }
+                }
+                @keyframes traceLineMobile2 {
+                  0%, 30% { opacity: 0; }
+                  40% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { opacity: 0; }
+                }
+                @keyframes traceLineMobile3 {
+                  0%, 60% { opacity: 0; }
+                  70% { opacity: 1; }
+                  90% { opacity: 1; }
+                  100% { opacity: 0; }
+                }
+                .trace-line-mobile-1 {
+                  animation: traceLineMobile1 6s ease-in-out infinite;
+                  opacity: 0;
+                }
+                .trace-line-mobile-2 {
+                  animation: traceLineMobile2 6s ease-in-out infinite;
+                  opacity: 0;
+                }
+                .trace-line-mobile-3 {
+                  animation: traceLineMobile3 6s ease-in-out infinite;
+                  opacity: 0;
+                }
+              `}
+            </style>
+            {/* Line from step 1 to step 2 */}
+            <path
+              className="trace-line-mobile-1"
+              d="M 1 12 L 1 37"
+              fill="none"
+              stroke="oklch(0.24 0.04 56)"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
+              strokeLinecap="round"
+            />
+            {/* Line from step 2 to step 3 */}
+            <path
+              className="trace-line-mobile-2"
+              d="M 1 37 L 1 62"
+              fill="none"
+              stroke="oklch(0.24 0.04 56)"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
+              strokeLinecap="round"
+            />
+            {/* Line from step 3 to step 4 */}
+            <path
+              className="trace-line-mobile-3"
+              d="M 1 62 L 1 87"
+              fill="none"
+              stroke="oklch(0.24 0.04 56)"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div className="space-y-6">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
-                <div
-                  key={step.title}
-                  className="relative flex items-start gap-4"
-                >
-                  <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-teal flex items-center justify-center shadow-md">
-                    <span className="text-sm font-bold text-white">
-                      {i + 1}
-                    </span>
+                <div key={step.title} className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-teal flex items-center justify-center z-10 relative">
+                    <Icon className="w-6 h-6 text-white" strokeWidth={2} />
                   </div>
-                  <div className="flex-1 bg-white border-2 border-gray-800 rounded-xl p-4 shadow-sm">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <Icon
-                        className="w-5 h-5 text-gray-800"
-                        strokeWidth={2}
-                      />
-                      <h3 className="text-base font-bold text-gray-900">
-                        {step.title}
-                      </h3>
-                    </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base font-bold text-gray-900 mb-1">
+                      {String(i + 1).padStart(2, "0")} {step.title}
+                    </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       {step.description}
                     </p>
@@ -344,6 +292,4 @@ const OurProcess = () => {
       </div>
     </section>
   );
-};
-
-export default OurProcess;
+}

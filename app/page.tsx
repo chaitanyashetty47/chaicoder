@@ -3,11 +3,11 @@ import Header from "@/components/Header";
 import TrustedByCarousel from "@/components/TrustedByCarousel";
 import TestimonialSection from "@/components/TestimonialSection";
 import ProjectsSection from "@/components/ProjectSection";
-import WhatSetsUsApartSection from "@/components/Features";
 import ProcessSection from "@/components/OurProcess";
 import PricingSection from "@/components/Pricing";
 import FAQSection from "@/components/ui/faq-section";
 import Footer from "@/components/Footer";
+import { FeatureSection } from "@/components/NewFeatures";
 
 export default function App() {
 
@@ -20,9 +20,9 @@ export default function App() {
         <Header />
         <HeroSection />
         <TrustedByCarousel />
-        <WhatSetsUsApartSection />
-        <ProjectsSection />
+        <FeatureSection />
         <TestimonialSection />
+        <ProjectsSection />
         <ProcessSection /> 
         <PricingSection />
         <FAQSection />

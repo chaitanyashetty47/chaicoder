@@ -11,6 +11,8 @@ interface Logo {
   width?: number;
   height?: number;
   className?: string;
+  /** Scale factor (e.g. 1.5) - enlarges visually without affecting layout/row height */
+  scale?: number;
 }
 
 interface LogoCarouselProps {
@@ -25,7 +27,7 @@ interface LogoCarouselProps {
 export function LogoCarousel({
   logos,
   direction = "left",
-  speed = "normal",
+  speed = "slow",
   pauseOnHover = true,
   className,
 }: LogoCarouselProps) {
@@ -102,19 +104,28 @@ export function LogoCarousel({
         {logos.map((logo) => {
           const logoWidth = logo.width || 167;
           const logoHeight = logo.height || 32;
+          const scale = logo.scale ?? 1;
           return (
             <li
               key={logo.id}
-              className="relative shrink-0 flex items-center justify-center"
+              className="relative shrink-0 flex items-center justify-center overflow-visible"
               style={{ width: logoWidth, height: logoHeight }}
             >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                width={logoWidth}
-                height={logoHeight}
-                className={logo.className || "h-8 w-auto object-contain"}
-              />
+              <span
+                className="inline-flex items-center justify-center"
+                style={{
+                  transform: `scale(${scale})`,
+                  transformOrigin: "center center",
+                }}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logoWidth}
+                  height={logoHeight}
+                  className={logo.className || "h-8 w-auto object-contain"}
+                />
+              </span>
             </li>
           );
         })}

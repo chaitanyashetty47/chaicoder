@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -24,10 +25,13 @@ const Header: React.FC = () => {
       <nav className="flex justify-between items-center px-8 py-4">
         {/* Logo */}
         <div className="flex items-center">
-          <img 
+          <Image 
             src="/Logo-without-Bg.png" 
             alt="The Chai Coder" 
+            width={156}
+            height={90}
             className="h-15 w-auto"
+            priority
           />
           {/* <h1 className="text-2xl font-bold text-[#E07A5F] font-sansation">
             TheChaiCoder

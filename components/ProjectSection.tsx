@@ -123,8 +123,9 @@ const ProjectShowcase = () => {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      width={1897}
-                      height={864}
+                      width={800}
+                      height={364}
+                      sizes="(max-width: 768px) 80vw, 640px"
                       className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                       priority={index === 0}
                     />
