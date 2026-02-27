@@ -63,12 +63,12 @@ const Footer: React.FC = () => {
             className="flex flex-col items-start gap-2 text-sm md:text-base md:items-end"
             aria-label="Footer site links"
           >
-            <button
+            {/* <button
               onClick={() => scrollToSection("pricing")}
               className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
             >
               Pricing
-            </button>
+            </button> */}
             <button
               onClick={() => scrollToSection("testimonials")}
               className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"

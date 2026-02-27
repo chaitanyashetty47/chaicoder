@@ -44,9 +44,9 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('hero')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 hover:cursor-pointer">
               Home
             </button>
-            <button onClick={() => scrollToSection('pricing')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 hover:cursor-pointer">
+            {/* <button onClick={() => scrollToSection('pricing')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 hover:cursor-pointer">
               Pricing
-            </button>
+            </button> */}
             <button onClick={() => scrollToSection('testimonials')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 hover:cursor-pointer">
               Testimonials
             </button>
@@ -78,9 +78,9 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('hero')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 py-2 text-left hover:cursor-pointer">
               Home
             </button>
-            <button onClick={() => scrollToSection('pricing')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 py-2 text-left hover:cursor-pointer">
+            {/* <button onClick={() => scrollToSection('pricing')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 py-2 text-left hover:cursor-pointer">
               Pricing
-            </button>
+            </button> */}
             <button onClick={() => scrollToSection('testimonials')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 py-2 text-left hover:cursor-pointer">
               Testimonials
             </button>
