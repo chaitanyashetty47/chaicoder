@@ -98,7 +98,7 @@ export function FeatureSection() {
 					What Sets Us Apart
 				</h2>
 				<p className="text-base md:text-lg lg:text-xl text-text-dark max-w-2xl mx-auto">
-					Building MVPs shouldn&apos;t feel messy, here&apos;s how we make it smooth.
+					Building Products shouldn&apos;t feel messy, here&apos;s how we make it smooth.
 				</p>
 			</header>
 			<div className="relative mx-auto grid w-full grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-6">

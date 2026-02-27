@@ -3,16 +3,15 @@
 import React from 'react';
 import RadarBadge from './RadarBadge';
 import { Timer, Gauge, Headset} from 'lucide-react';
-import { DottedGlowBackground } from '@/components/ui/dotted-glow-background';
+import { DottedStaticBackground } from '@/components/ui/dotted-static-background';
 
 
 const HeroSection: React.FC = () => {
   return (
     <section id="hero" className="relative flex flex-col items-center justify-start text-center px-4 pt-8 pb-8 min-h-[500px] overflow-hidden">
-      {/* Dotted glow background - fills hero, repeats via canvas */}
-      {/* <DottedGlowBackground
+      {/* Static dotted background - same dot count as animated version, no performance cost */}
+      <DottedStaticBackground
         className="pointer-events-none absolute inset-0"
-        pauseWhenOffScreen
         opacity={0.7}
         gap={14}
         radius={1.5}
@@ -20,11 +19,7 @@ const HeroSection: React.FC = () => {
         glowColorLightVar="--color-glow-orange"
         colorDarkVar="--color-dot-orange"
         glowColorDarkVar="--color-glow-orange"
-        backgroundOpacity={0}
-        speedMin={0.2}
-        speedMax={1}
-        speedScale={1}
-      /> */}
+      />
       
       {/* Content - above background */}
       <div className="relative z-10 flex flex-col items-center w-full">

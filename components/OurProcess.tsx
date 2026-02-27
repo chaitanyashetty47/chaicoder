@@ -19,7 +19,7 @@ const steps: StepData[] = [
   {
     title: "Planning & Roadmap",
     description:
-      "In one week, we define scope, prioritize features, and craft a roadmap for your MVP launch.",
+      "In one week, we define scope, prioritize features, and craft a roadmap for your Product launch.",
     icon: MapPin,
   },
   {
@@ -31,7 +31,7 @@ const steps: StepData[] = [
   {
     title: "Launch",
     description:
-      "Your MVP goes live, ready to gather real user feedback or pitch confidently to investors.",
+      "Your Product goes live, ready to gather real user feedback or pitch confidently to investors.",
     icon: Rocket,
   },
 ];
@@ -50,10 +50,10 @@ export default function OurProcess() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
-            Our 4-Step MVP Blueprint
+            Our 4-Step Product Blueprint
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-4xl mx-auto px-2">
-            A lean, market-ready MVP in 4 proven phases, designed to save time,
+            A lean, market-ready Product in 4 proven phases, designed to save time,
             cut costs, and maximize impact.
           </p>
         </div>

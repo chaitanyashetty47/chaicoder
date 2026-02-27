@@ -35,19 +35,17 @@ const Footer: React.FC = () => {
                 alt="The Chai Coder"
                 width={312}
                 height={180}
-                className="h-28 w-auto"
+                className="h-28 w-auto object-left"
                 priority
               />
             </div>
-            <div>
+            <div className="mb-2 inline-flex flex-col items-start gap-4 rounded-2xl bg-neutral-900/95 px-6 py-5 shadow-lg">
               <h2
                 id="footer-heading"
-                className="text-2xl md:text-3xl font-bold tracking-tight"
+                className="text-2xl md:text-3xl font-bold tracking-tight text-white"
               >
                 Start Your Project Today
               </h2>
-            </div>
-            <div>
               <button
                 type="button"
                 onClick={openBooking}
@@ -58,26 +56,20 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Navigation links */}
+          {/* Right: Navigation links - aligned slightly below logo, equidistant from right edge */}
           <nav
-            className="flex flex-col items-start gap-2 text-sm md:text-base md:items-end"
+            className="flex flex-col items-end gap-2 pt-10 text-sm md:text-base md:pt-12 md:pr-0"
             aria-label="Footer site links"
           >
-            {/* <button
-              onClick={() => scrollToSection("pricing")}
-              className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
-            >
-              Pricing
-            </button> */}
             <button
               onClick={() => scrollToSection("testimonials")}
-              className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
+              className="text-teal-50/90 hover:text-white hover:font-bold transition-colors duration-300 font-inter cursor-pointer"
             >
               Testimonials
             </button>
             <button
               onClick={() => scrollToSection("our-work")}
-              className="text-teal-50/90 hover:text-white transition-colors duration-300 font-inter"
+              className="text-teal-50/90 hover:text-white hover:font-bold transition-colors duration-300 font-inter cursor-pointer"
             >
               Our Work
             </button>
