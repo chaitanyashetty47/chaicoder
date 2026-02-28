@@ -50,7 +50,7 @@ export default function OurProcess() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
-            Our 4-Step Product Blueprint
+            Our 4-Step Product Build System
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-4xl mx-auto px-2">
             A lean, market-ready Product in 4 proven phases, designed to save time,
