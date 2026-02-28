@@ -107,7 +107,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
           Let's bring your vision to life with modern web solutions.
         </p>
         <button 
-          onClick={() => window.open('https://calendly.com/chaitanyashetty47/the-chaicoder-discovery-call', '_blank')}
+          onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')}
           className="bg-[#2A9D8F] text-white px-4 py-2.5 rounded-lg font-bold text-sm transition-all duration-300  hover:bg-[#238B7A] mt-2"
         >
           Book Your Call

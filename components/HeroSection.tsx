@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
         </p>
       
       <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <button onClick={() => window.open('https://cal.com/chaitanya-shetty-mabufa/30min', '_blank')} className="bg-teal text-white font-semibold px-6 py-3 rounded-lg hover:bg-teal-hover transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-inter hover:cursor-pointer">
+        <button onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')} className="bg-teal text-white font-semibold px-6 py-3 rounded-lg hover:bg-teal-hover transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-inter hover:cursor-pointer">
           Book Your Call
         </button>
         

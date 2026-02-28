@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
   };
 
   const openBooking = () => {
-    window.open("https://cal.com/chaitanya-shetty-mabufa/30min", "_blank");
+    window.open("https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call", "_blank");
   };
 
   return (

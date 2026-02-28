@@ -10,7 +10,7 @@ const pricingTiers: PricingTier[] = [
     priceSubtext: 'Starting at',
     price: '$2749',
     buttonText: 'Book a Call',
-    buttonUrl: 'https://cal.com/chaitanya-shetty-mabufa/30min',
+    buttonUrl: 'https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call',
     buttonVariant: 'outline',
     features: [
       'Launch in 4-5 weeks',
@@ -29,7 +29,7 @@ const pricingTiers: PricingTier[] = [
     price: '$4449',
     priceSubtext: 'Starting at',
     buttonText: 'Start My MVP',
-    buttonUrl: 'https://cal.com/chaitanya-shetty-mabufa/30min',
+    buttonUrl: 'https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call',
     variant: 'popular',
     badge: {
       text: 'Most Popular',
@@ -51,7 +51,7 @@ const pricingTiers: PricingTier[] = [
     price: '$7999',
     priceSubtext: 'Starting at',
     buttonText: 'Book a Call',
-    buttonUrl: 'https://cal.com/chaitanya-shetty-mabufa/30min',
+    buttonUrl: 'https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call',
     buttonVariant: 'outline',
     badge: {
       text: 'Recommended by Founders',
