@@ -84,7 +84,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
                 ref={activeId === heading.id ? activeButtonRef : null}
                 key={heading.id}
                 onClick={() => handleClick(heading.id)}
-                className={`text-left text-[0.8rem] transition-all duration-200 py-1.5 px-2 rounded ${
+                className={`text-left text-[0.8rem] transition-all duration-200 py-1.5 px-2 rounded flex items-center gap-2 ${
                   heading.level === 3 ? 'pl-6' : ''
                 } ${
                   activeId === heading.id
@@ -92,6 +92,9 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
                     : 'text-[#3D2C20]/90 hover:text-[#2A9D8F]'
                 }`}
               >
+                {heading.level === 3 && (
+                  <span className="w-1 h-1 rounded-full bg-dot-orange flex-shrink-0" aria-hidden />
+                )}
                 {heading.text}
               </button>
             ))}

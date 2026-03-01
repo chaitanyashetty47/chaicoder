@@ -12,7 +12,7 @@ const projects = [
     description: "Strentor is a wellness platform designed to help users stay consistent with their fitness journey. We built a scalable website where clients can subscribe to workout plans, get assigned trainers, and track progress. Features include client workout logs, trainer dashboards, admin oversight, and Razorpay payment integration.",
     image: "/strentor-hero.jpg",
     link: "https://www.strentor.com",
-    caseStudySlug: "strentor-case-study",
+    caseStudySlug: "strentor",
     inProgress: false,
   },
   {
@@ -91,19 +91,19 @@ const ProjectShowcase = () => {
                   
                   <p className="text-text-dark/70 leading-relaxed text-base md:text-lg">
                     {project.description}
-                    {project.caseStudySlug && (
-                      <>
-                        {" "}
-                        {/* <Link
-                          href={`/blogs/${project.caseStudySlug}`}
-                          className="text-teal hover:text-teal-hover font-medium transition-colors duration-300"
-                        >
-                          More Details
-                        </Link> */}
-                      </>
-                    )}
                   </p>
 
+                  <div className="flex flex-wrap gap-3">
+                  {project.caseStudySlug && (
+                    <Button
+                      className="bg-white border border-teal text-teal hover:bg-teal/5 rounded-lg shadow-sm transition-all duration-300 w-fit"
+                      asChild
+                    >
+                      <Link href={`/case-studies/${project.caseStudySlug}`}>
+                        Read Case Study
+                      </Link>
+                    </Button>
+                  )}
                   {project.link && project.link !== "#" && (
                     <Button 
                       className="bg-teal hover:bg-teal/90 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 w-fit"
@@ -115,6 +115,7 @@ const ProjectShowcase = () => {
                       </a>
                     </Button>
                   )}
+                  </div>
                 </div>
 
                 {/* Right side - Image */}

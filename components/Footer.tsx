@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Twitter } from "lucide-react";
 
 const Footer: React.FC = () => {
@@ -35,11 +36,11 @@ const Footer: React.FC = () => {
                 alt="The Chai Coder"
                 width={312}
                 height={180}
-                className="h-28 w-auto object-left"
+                className="h-12 w-auto object-left"
                 priority
               />
             </div>
-            <div className="mb-2 inline-flex flex-col items-start gap-4 rounded-2xl bg-neutral-900/95 px-6 py-5 shadow-lg">
+            <div className="mt-4 inline-flex flex-col items-start gap-4 rounded-2xl bg-neutral-900/95 px-6 py-5 shadow-lg">
               <h2
                 id="footer-heading"
                 className="text-2xl md:text-3xl font-bold tracking-tight text-white"
@@ -73,6 +74,12 @@ const Footer: React.FC = () => {
             >
               Our Work
             </button>
+            <Link
+              href="/case-studies"
+              className="text-teal-50/90 hover:text-white hover:font-bold transition-colors duration-300 font-inter"
+            >
+              Case Studies
+            </Link>
           </nav>
         </section>
 
