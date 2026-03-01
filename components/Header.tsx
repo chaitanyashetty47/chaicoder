@@ -45,7 +45,7 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
           <div className="flex items-center space-x-8">
-            <Link href="/#hero" onClick={(e) => handleNavClick(e, 'hero')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300">
+            <Link href="/" onClick={(e) => handleNavClick(e, 'hero')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300">
               Home
             </Link>
             <Link href="/#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300">
