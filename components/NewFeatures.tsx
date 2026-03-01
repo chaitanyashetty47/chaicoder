@@ -725,6 +725,7 @@ export function RouteMapIcon(props: ComponentProps<"svg">) {
     const run = async () => {
       while (!cancelled) {
         // Reset checkmarks
+        if (cancelled) break;
         await Promise.all([
           checkStart.start({ pathLength: 0, opacity: 0 }),
           checkFirst.start({ pathLength: 0, opacity: 0 }),
@@ -735,6 +736,7 @@ export function RouteMapIcon(props: ComponentProps<"svg">) {
         await new Promise((r) => setTimeout(r, 200));
 
         // Subtle emphasis on start (location marker)
+        if (cancelled) break;
         locationMarker.start({
           scale: 1.08,
           transition: { duration: 0.25, ease: "easeOut" },
@@ -743,6 +745,7 @@ export function RouteMapIcon(props: ComponentProps<"svg">) {
         await new Promise((r) => setTimeout(r, 400));
 
         // Start node gets checkmark (first step on path)
+        if (cancelled) break;
         await checkStart.start({
           pathLength: 1,
           opacity: 1,
@@ -752,16 +755,19 @@ export function RouteMapIcon(props: ComponentProps<"svg">) {
         await new Promise((r) => setTimeout(r, 350));
 
         // First middle circle gets checkmark (walk to first middle node)
+        if (cancelled) break;
         await checkFirst.start({
           pathLength: 1,
           opacity: 1,
           transition: { duration: 0.45, ease: "easeInOut" },
         });
+        if (cancelled) break;
         locationMarker.start({ scale: 1, transition: { duration: 0.2 } });
         if (cancelled) break;
         await new Promise((r) => setTimeout(r, 400));
 
         // Second middle circle gets checkmark (walk to second middle node)
+        if (cancelled) break;
         await checkSecond.start({
           pathLength: 1,
           opacity: 1,
@@ -771,6 +777,7 @@ export function RouteMapIcon(props: ComponentProps<"svg">) {
         await new Promise((r) => setTimeout(r, 400));
 
         // End node gets checkmark (reach destination)
+        if (cancelled) break;
         await checkEnd.start({
           pathLength: 1,
           opacity: 1,

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const caseStudiesDirectory = path.join(process.cwd(), 'case-studies');
+const caseStudiesDirectory = path.join(process.cwd(), 'case-study');
 
 export interface CaseStudyTestimonial {
   quote: string;

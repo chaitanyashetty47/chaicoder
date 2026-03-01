@@ -17,7 +17,6 @@ export default function App() {
     {/* Background gradient overlay for smoother transition of colors */}
       <div className="absolute inset-0 bg-gradient-to-r from-chai-foam/90 via-transparent to-chai-foam/90"></div>
       <div className="relative z-10">
-        <Header />
         <HeroSection />
         <TrustedByCarousel />
         <FeatureSection />

@@ -75,10 +75,10 @@ const Footer: React.FC = () => {
               Our Work
             </button>
             <Link
-              href="/case-studies"
+              href="/case-study"
               className="text-teal-50/90 hover:text-white hover:font-bold transition-colors duration-300 font-inter"
             >
-              Case Studies
+              Case Study
             </Link>
           </nav>
         </section>

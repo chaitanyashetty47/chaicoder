@@ -69,20 +69,9 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-chai-foam via-chai-light to-chai-foam">
-      <Header />
       <div className="container mx-auto px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
           <article className="flex-1 max-w-4xl w-full">
-            {/* Back link */}
-            {/* <div className="mb-6">
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center text-teal font-semibold hover:text-teal-hover transition-colors"
-              >
-                ← Back to Case Studies
-              </Link>
-            </div> */}
-
             {/* Client logo */}
             <div className="mb-6 flex justify-start">
               <Image

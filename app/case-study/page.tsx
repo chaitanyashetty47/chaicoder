@@ -3,21 +3,20 @@ import { getAllCaseStudies } from '@/lib/case-study';
 import Header from '@/components/Header';
 
 export const metadata = {
-  title: 'Case Studies | The Chai Coder',
+  title: 'Case Study | The Chai Coder',
   description:
     'Real projects, real impact. See how we help brands build and ship products that scale.',
 };
 
-export default function CaseStudiesPage() {
+export default function CaseStudyListPage() {
   const caseStudies = getAllCaseStudies();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-chai-foam via-chai-light to-chai-foam">
-      <Header />
       <div className="container mx-auto px-8 py-12 md:py-16 max-w-4xl">
         <div className="mb-12">
           <p className="text-sm font-medium tracking-widest text-teal uppercase mb-2">
-            Case Studies
+            Case Study
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-text-dark mb-4">
             Our Work in Action
@@ -55,13 +54,13 @@ export default function CaseStudiesPage() {
                 </div>
 
                 <h2 className="text-2xl md:text-3xl font-bold text-text-dark mb-3 hover:text-primary-orange transition-colors">
-                  <Link href={`/case-studies/${cs.slug}`}>{cs.title}</Link>
+                  <Link href={`/case-study/${cs.slug}`}>{cs.title}</Link>
                 </h2>
 
                 <p className="text-text-dark/80 mb-4 leading-relaxed">{cs.summary}</p>
 
                 <Link
-                  href={`/case-studies/${cs.slug}`}
+                  href={`/case-study/${cs.slug}`}
                   className="inline-flex items-center text-teal font-semibold hover:text-teal-hover transition-colors"
                 >
                   Read case study →

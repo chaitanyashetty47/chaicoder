@@ -99,7 +99,7 @@ const ProjectShowcase = () => {
                       className="bg-white border border-teal text-teal hover:bg-teal/5 rounded-lg shadow-sm transition-all duration-300 w-fit"
                       asChild
                     >
-                      <Link href={`/case-studies/${project.caseStudySlug}`}>
+                      <Link href={`/case-study/${project.caseStudySlug}`}>
                         Read Case Study
                       </Link>
                     </Button>
