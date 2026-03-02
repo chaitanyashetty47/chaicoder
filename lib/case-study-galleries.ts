@@ -42,10 +42,38 @@ export const CASE_STUDY_GALLERIES: Record<string, CaseStudyImage[]> = {
       title: "Ideal Weight Calculator",
     },
   ],
-  // Add more case studies here, e.g.:
-  // otherClient: [
-  //   { src: "/other-client-case-study/...", alt: "...", title: "..." },
-  // ],
+  spopeer: [
+    {
+      src: "/spopeer-casestudy/home-page.png",
+      alt: "Home Page",
+      title: "Home Page",
+    },
+    {
+      src: "/spopeer-casestudy/post-dialog.png",
+      alt: "Post Dialog",
+      title: "Post Dialog",
+    },
+    {
+      src: "/spopeer-casestudy/profile-page.png",
+      alt: "Profile Page",
+      title: "Profile Page",
+    },
+    {
+      src: "/spopeer-casestudy/settings-page.png",
+      alt: "Settings Page",
+      title: "Settings Page",
+    },
+    {
+      src: "/spopeer-casestudy/chat-page.png",
+      alt: "Chat Page",
+      title: "Chat Page",
+    },
+    {
+      src: "/spopeer-casestudy/connection-request-page.png",
+      alt: "Connection Request Page",
+      title: "Connection Request Page",
+    },
+  ],
 };
 
 export function getGalleryForSlug(slug: string): CaseStudyImage[] {

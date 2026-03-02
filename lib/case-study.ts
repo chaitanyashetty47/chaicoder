@@ -5,7 +5,8 @@ import matter from 'gray-matter';
 const caseStudiesDirectory = path.join(process.cwd(), 'case-study');
 
 export interface CaseStudyTestimonial {
-  quote: string;
+  quote?: string;
+  tweetUrl?: string;
   author: string;
   role: string;
   avatar?: string;
@@ -26,6 +27,7 @@ export interface CaseStudy {
   date: string;
   clientName: string;
   clientAnonymous: boolean;
+  clientLogo?: string;
   projectBrief: CaseStudyProjectBrief;
   summary: string;
   testimonial: CaseStudyTestimonial;
@@ -60,6 +62,7 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | null {
       date: data.date || '',
       clientName: data.clientName || '',
       clientAnonymous: data.clientAnonymous ?? false,
+      clientLogo: data.clientLogo,
       projectBrief: {
         industry: data.projectBrief?.industry || '',
         businessModel: data.projectBrief?.businessModel || '',
@@ -71,6 +74,7 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | null {
       summary: data.summary || '',
       testimonial: {
         quote: data.testimonial?.quote || '',
+        tweetUrl: data.testimonial?.tweetUrl || '',
         author: data.testimonial?.author || '',
         role: data.testimonial?.role || '',
         avatar: data.testimonial?.avatar,

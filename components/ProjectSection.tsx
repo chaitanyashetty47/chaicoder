@@ -22,7 +22,7 @@ const projects = [
     description: "Spopeer is a social platform built to connect sports professionals in one place. Tailored for athletes, coaches, and clubs, it focuses on scalable performance with features like media uploads, profile management, discovery, and connection requests. Designed to evolve with community needs while keeping usability at the center.",
     image: "/spopeer-hero.jpg",
     link: "https://www.spopeer.com",
-    caseStudySlug: "spopeer-case-study",
+    caseStudySlug: "spopeer",
     inProgress: true,
   },
   {

@@ -9,6 +9,7 @@ import {
 import { extractHeadings } from '@/lib/headings';
 import { getGalleryForSlug } from '@/lib/case-study-galleries';
 import { VisualProofGallery } from '@/components/case-study/VisualProofGallery';
+import { CaseStudyTweetEmbed } from '@/components/case-study/CaseStudyTweetEmbed';
 import { TableOfContents } from '@/components/ui/table-of-contents';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -82,15 +83,17 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
           <article className="flex-1 max-w-4xl w-full">
             {/* Client logo */}
-            <div className="mb-6 flex justify-start">
-              <Image
-                src="/str-compressed.png"
-                alt={caseStudy.clientName}
-                width={120}
-                height={48}
-                className="h-12 w-auto object-contain"
-              />
-            </div>
+            {caseStudy.clientLogo && (
+              <div className="mb-6 flex justify-start">
+                <Image
+                  src={caseStudy.clientLogo}
+                  alt={caseStudy.clientName}
+                  width={120}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            )}
 
             {/* Label */}
             <p className="text-sm font-medium tracking-widest text-teal uppercase mb-4">
@@ -134,12 +137,18 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
 
             {/* 2. Testimonial Card */}
-            {caseStudy.testimonial.quote && (
+            {(caseStudy.testimonial.quote || caseStudy.testimonial.tweetUrl) && (
               <div className="mb-10">
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 border-t-4 border-t-teal p-6 md:p-8">
-                  <blockquote className="italic text-text-dark/90 text-base md:text-lg leading-relaxed mb-6">
-                    &ldquo;{caseStudy.testimonial.quote}&rdquo;
-                  </blockquote>
+                  {caseStudy.testimonial.tweetUrl ? (
+                    <div className="mb-6">
+                      <CaseStudyTweetEmbed tweetUrl={caseStudy.testimonial.tweetUrl} />
+                    </div>
+                  ) : (
+                    <blockquote className="italic text-text-dark/90 text-base md:text-lg leading-relaxed mb-6">
+                      &ldquo;{caseStudy.testimonial.quote}&rdquo;
+                    </blockquote>
+                  )}
                   <div className="flex items-center gap-4">
                     {caseStudy.testimonial.avatar && (
                       <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
