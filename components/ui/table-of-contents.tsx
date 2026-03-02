@@ -84,7 +84,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
                 ref={activeId === heading.id ? activeButtonRef : null}
                 key={heading.id}
                 onClick={() => handleClick(heading.id)}
-                className={`text-left text-[0.8rem] transition-all duration-200 py-1.5 px-2 rounded flex items-center gap-2 ${
+                className={`text-left text-[0.8rem] transition-all duration-200 py-1.5 px-2 rounded flex items-center gap-2 cursor-pointer ${
                   heading.level === 3 ? 'pl-6' : ''
                 } ${
                   activeId === heading.id

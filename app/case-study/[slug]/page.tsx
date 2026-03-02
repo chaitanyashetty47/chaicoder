@@ -7,7 +7,8 @@ import {
   getCaseStudyMetadata,
 } from '@/lib/case-study';
 import { extractHeadings } from '@/lib/headings';
-import Header from '@/components/Header';
+import { getGalleryForSlug } from '@/lib/case-study-galleries';
+import { VisualProofGallery } from '@/components/case-study/VisualProofGallery';
 import { TableOfContents } from '@/components/ui/table-of-contents';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -45,7 +46,15 @@ export default async function CaseStudyPage({ params }: Props) {
     notFound();
   }
 
-  const headings = extractHeadings(caseStudy.content);
+  let headings = extractHeadings(caseStudy.content);
+  
+  // Add Visual Proof heading when case study has a gallery
+  if (getGalleryForSlug(caseStudy.slug).length > 0) {
+    headings = [
+      ...headings,
+      { id: 'visual-proof', text: 'Visual Proof', level: 2 }
+    ];
+  }
 
   const generateId = (children: unknown): string => {
     const extractText = (node: unknown): string => {
@@ -130,7 +139,8 @@ export default async function CaseStudyPage({ params }: Props) {
             )}
 
             {/* 3–9. Content (Client Overview through Visual Proof / Results) */}
-            <div className="prose prose-lg max-w-none bg-white/80 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-sm">
+            <div className="prose prose-lg max-w-none bg-white/80 backdrop-blur-sm rounded-lg shadow-sm">
+              <div className="p-6 md:p-8">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -264,6 +274,17 @@ export default async function CaseStudyPage({ params }: Props) {
               >
                 {caseStudy.content}
               </ReactMarkdown>
+
+              {/* Visual Proof gallery – shown when case study has gallery images */}
+              {getGalleryForSlug(caseStudy.slug).length > 0 && (
+                <section className="mt-8 pt-8 border-t border-gray-200">
+                  <h2 id="visual-proof" className="text-2xl md:text-3xl font-bold text-text-dark mb-6">
+                    Visual Proof
+                  </h2>
+                  <VisualProofGallery slug={caseStudy.slug} />
+                </section>
+              )}
+              </div>
             </div>
           </article>
 
