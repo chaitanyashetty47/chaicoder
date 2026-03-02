@@ -11,13 +11,22 @@ export interface CaseStudyTestimonial {
   avatar?: string;
 }
 
+export interface CaseStudyProjectBrief {
+  industry: string;
+  businessModel: string;
+  stage: string;
+  market: string;
+  offering: string;
+  uniqueValue: string;
+}
+
 export interface CaseStudy {
   slug: string;
   title: string;
   date: string;
   clientName: string;
   clientAnonymous: boolean;
-  projectBrief: string;
+  projectBrief: CaseStudyProjectBrief;
   summary: string;
   testimonial: CaseStudyTestimonial;
   content: string;
@@ -51,7 +60,14 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | null {
       date: data.date || '',
       clientName: data.clientName || '',
       clientAnonymous: data.clientAnonymous ?? false,
-      projectBrief: data.projectBrief || '',
+      projectBrief: {
+        industry: data.projectBrief?.industry || '',
+        businessModel: data.projectBrief?.businessModel || '',
+        stage: data.projectBrief?.stage || '',
+        market: data.projectBrief?.market || '',
+        offering: data.projectBrief?.offering || '',
+        uniqueValue: data.projectBrief?.uniqueValue || '',
+      },
       summary: data.summary || '',
       testimonial: {
         quote: data.testimonial?.quote || '',

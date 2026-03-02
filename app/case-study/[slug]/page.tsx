@@ -97,15 +97,41 @@ export default async function CaseStudyPage({ params }: Props) {
               Case Study
             </p>
 
-            {/* 1. Project Brief */}
+            {/* Title */}
             <header className="mb-8">
               <h1 className="text-4xl md:text-5xl font-bold text-text-dark mb-4">
                 {caseStudy.title}
               </h1>
-              <p className="text-xl text-text-dark/80 leading-relaxed">
-                {caseStudy.projectBrief}
-              </p>
             </header>
+
+            {/* Client Overview - outside white card */}
+            <div className="mb-8 space-y-3">
+              <ul className="space-y-2 text-text-dark/90">
+                <li className="flex gap-2">
+                  <span className="font-semibold min-w-[140px]">Industry:</span>
+                  <span>{caseStudy.projectBrief.industry}</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="font-semibold min-w-[140px]">Business Model:</span>
+                  <span>{caseStudy.projectBrief.businessModel}</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="font-semibold min-w-[140px]">Stage:</span>
+                  <span>{caseStudy.projectBrief.stage}</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="font-semibold min-w-[140px]">Market:</span>
+                  <span>{caseStudy.projectBrief.market}</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="font-semibold min-w-[140px]">Offering:</span>
+                  <span>{caseStudy.projectBrief.offering}</span>
+                </li>
+              </ul>
+              <p className="text-text-dark/90 leading-relaxed pt-2">
+                {caseStudy.projectBrief.uniqueValue}
+              </p>
+            </div>
 
             {/* 2. Testimonial Card */}
             {caseStudy.testimonial.quote && (
@@ -138,7 +164,7 @@ export default async function CaseStudyPage({ params }: Props) {
               </div>
             )}
 
-            {/* 3–9. Content (Client Overview through Visual Proof / Results) */}
+            {/* Main content (The Challenge through Results) */}
             <div className="prose prose-lg max-w-none bg-white/80 backdrop-blur-sm rounded-lg shadow-sm">
               <div className="p-6 md:p-8">
               <ReactMarkdown

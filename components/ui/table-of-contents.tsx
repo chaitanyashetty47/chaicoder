@@ -14,14 +14,16 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('');
+  const [isManualClick, setIsManualClick] = useState(false);
   const activeButtonRef = useRef<HTMLButtonElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const manualClickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !isManualClick) {
             setActiveId(entry.target.id);
           }
         });
@@ -36,8 +38,10 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
       }
     });
 
-    return () => observer.disconnect();
-  }, [headings]);
+    return () => {
+      observer.disconnect();
+    };
+  }, [headings, isManualClick]);
 
   useEffect(() => {
     if (activeButtonRef.current && scrollContainerRef.current) {
@@ -55,16 +59,40 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+      // Clear any existing timeout
+      if (manualClickTimeoutRef.current) {
+        clearTimeout(manualClickTimeoutRef.current);
+      }
+
+      // Disable IntersectionObserver updates during manual scroll
+      setIsManualClick(true);
+      setActiveId(id);
+
+      // Scroll to element with offset
       const offset = 120;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = elementPosition + window.scrollY - offset;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth',
       });
+
+      // Re-enable IntersectionObserver after scroll completes
+      manualClickTimeoutRef.current = setTimeout(() => {
+        setIsManualClick(false);
+      }, 1000);
     }
   };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (manualClickTimeoutRef.current) {
+        clearTimeout(manualClickTimeoutRef.current);
+      }
+    };
+  }, []);
 
   if (headings.length === 0) return null;
 
