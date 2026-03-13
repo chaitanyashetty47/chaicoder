@@ -94,7 +94,7 @@ export function FeatureSection() {
 	return (
 		<section className="relative mx-auto w-full max-w-5xl px-4 md:px-1 mt-24" aria-labelledby="features-heading">
 			<header className="mb-8 md:mb-10 text-center">
-				<h2 id="features-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
+				<h2 id="features-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-primary-orange mb-3 md:mb-4">
 					What Sets Us Apart
 				</h2>
 				<p className="text-base md:text-lg lg:text-xl text-text-dark max-w-2xl mx-auto">

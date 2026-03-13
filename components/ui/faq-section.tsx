@@ -64,7 +64,7 @@ const FAQSection: React.FC = () => {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-primary-orange mb-3 md:mb-4">
             Got Questions?<br/>We&apos;ve Got Answers.
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-2xl mx-auto">

@@ -49,7 +49,7 @@ export default function OurProcess() {
     <section className="py-12 md:py-16 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-orange mb-3 md:mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-primary-orange mb-3 md:mb-4">
             Our 4-Step Product Build System
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-4xl mx-auto px-2">

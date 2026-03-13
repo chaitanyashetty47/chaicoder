@@ -32,11 +32,11 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <Link href="/" className="block">
             <Image 
-              src="/Logo-without-Bg.png" 
+              src="/logo-light-bg.png" 
               alt="The Chai Coder" 
               width={156}
               height={90}
-              className="h-15 w-auto"
+              className="h-14 w-auto"
               priority
             />
           </Link>

@@ -25,7 +25,26 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center w-full">
         <RadarBadge />
         
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary-orange font-sansation mb-4 leading-tight text-center">
+
+        {/* Tracking Normal */}
+
+        {/* <button onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')} className="bg-teal text-white font-semibold mb-2 px-6 py-3 rounded-lg hover:bg-teal-hover transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-inter hover:cursor-pointer">
+          Tracking 0% 
+        </button>
+
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold  text-primary-orange font-sansation leading-tight text-center">
+          Bring the Ideas.<br /> We&apos;ll Brew the Product
+        </h1> */}
+
+        {/* <h1 className="text-3xl md:text-5xl lg:text-6xl mb-4 text-black font-sansation text-center"> VS </h1> */}
+
+        {/* Tracking Tighter */}
+
+        {/* <button onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')} className="bg-teal text-white font-semibold mb-2 px-6 py-3 rounded-lg hover:bg-teal-hover transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-inter hover:cursor-pointer">
+          Tracking -5% (tracking-tighter in Tailwind)
+        </button> */}
+
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary-orange font-sansation mb-4 leading-tight text-center">
           Bring the Ideas.<br /> We&apos;ll Brew the Product
         </h1>
         

@@ -42,7 +42,7 @@ export default function TrustedByCarousel() {
           <p className="text-sm font-medium tracking-widest text-text-dark">
             TRUSTED BY TEAMS FROM AROUND THE WORLD
           </p>
-          <h2 className="text-3xl md:text-[3rem] font-bold tracking-tight leading-none text-primary-orange">
+          <h2 className="text-3xl md:text-[3rem] font-bold tracking-tighter leading-none text-primary-orange">
             The best are already here
           </h2>
         </div>
