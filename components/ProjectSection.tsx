@@ -1,6 +1,8 @@
-import { Badge } from "@/components/ui/badge";
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,39 +10,58 @@ const projects = [
   {
     id: 1,
     title: "Strentor",
-    tagline: "Wellness Platform",
-    description: "Strentor is a wellness platform designed to help users stay consistent with their fitness journey. We built a scalable website where clients can subscribe to workout plans, get assigned trainers, and track progress. Features include client workout logs, trainer dashboards, admin oversight, and Razorpay payment integration.",
-    image: "/strentor-hero.jpg",
+    description: "We rebuilt Strentor's digital presence from the ground up - turning a generic landing page into a full-stack product ecosystem that supported growth toward $5M+ in 8 months.",
+    logo: "/logos/white/strentor.png",
     link: "https://www.strentor.com",
     caseStudySlug: "strentor",
-    inProgress: false,
+    stats: [
+      { value: "$5M", label: "revenue generated" },
+      { value: "100k+", label: "monthly users" },
+      { value: "100+", label: "monthly calls" }
+    ]
   },
   {
     id: 2,
     title: "Spopeer",
-    tagline: "Social Networking",
-    description: "Spopeer is a social platform built to connect sports professionals in one place. Tailored for athletes, coaches, and clubs, it focuses on scalable performance with features like media uploads, profile management, discovery, and connection requests. Designed to evolve with community needs while keeping usability at the center.",
-    image: "/spopeer-hero.jpg",
+    description: "We architected Spopeer - a production ready sports networking platform, onboarding 3,000+ beta users with strong early engagement before full public launch.",
+    logo: "/logos/white/spopeer-white-logo.png",
     link: "https://www.spopeer.com",
     caseStudySlug: "spopeer",
-    inProgress: true,
+    stats: [
+      { value: "3k+", label: "beta users" },
+      { value: "500+", label: "profiles in 10 days" },
+      { value: "7m", label: "avg session" }
+    ]
   },
   {
     id: 3,
-    title: "Penaltyboxd",
-    tagline: "Football Community",
-    description: "Penaltyboxd is a community-driven platform where fans can rate, review, and discuss matches. Users can log games they've watched, share opinions, and browse insights from others. The goal is to unite football enthusiasts in a dedicated space for engaging discussions and reviews.",
-    image: "/penatyboxd-hero.jpg",
-    link: "https://www.penaltyboxd.com",
-    caseStudySlug: "penaltyboxd-case-study",
-    inProgress: false,
+    title: "Ztraél",
+    description: "We transformed Ztraél's dull Shopify experience into a cleaner, more conversion-focused product journey, lifting the conversion rate from ~1.8% to 3.2% and driving ~78% more orders.",
+    logo: "/logos/white/ztrael.png",
+    caseStudySlug: "ztrael",
+    stats: [
+      { value: "+78%", label: "in orders" },
+      { value: "3.2%", label: "conversion rate" },
+      { value: "2.3k+", label: "monthly visitors" }
+    ]
   },
-  
 ];
 
 const ProjectShowcase = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  const project = projects[currentIndex];
+
   return (
-    <section id="our-work" className="py-20 px-4 ">
+    <section id="our-work" className="py-20 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-primary-orange mb-4">
@@ -51,100 +72,114 @@ const ProjectShowcase = () => {
           </p>
         </div>
 
-        <div className="space-y-20">
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className="group w-[80%] mx-auto relative overflow-hidden rounded-2xl transition-all duration-500 shadow-[0_8px_30px_rgba(61,44,32,0.12),0_20px_60px_rgba(61,44,32,0.15)] hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(61,44,32,0.18),0_30px_80px_rgba(61,44,32,0.22),0_0_0_1px_rgba(0,128,128,0.1)] hover:-translate-y-1"
-            >
-              {/* Background: gradient darker on left, at 35% opacity */}
-              <div
-                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-chai-light via-chai-foam to-chai-foam opacity-0"
-                aria-hidden
-              />
-              {/* Liquid glass layer */}
-              <div
-                className="relative p-6 md:p-8 rounded-2xl backdrop-blur-md bg-chai-foam/30 border border-white/50 shadow-[inset_0_1px_0px_rgba(255,255,255,0.8),0_0_12px_rgba(61,44,32,0.08),0_4px_16px_rgba(61,44,32,0.1)] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/50 before:via-transparent before:to-transparent before:opacity-80 before:pointer-events-none before:content-[''] after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-tl after:from-white/25 after:via-transparent after:to-transparent after:opacity-60 after:pointer-events-none after:content-[''] group-hover:border-teal/30 transition-all duration-500"
-              >
-                <div
-                  className={`relative z-10 grid md:grid-cols-2 gap-8 items-center ${
-                    index % 2 === 1 ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                {/* Left side - Content */}
-                <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                  <div className="space-y-2">
-                    <h3 className="text-3xl md:text-4xl font-bold text-text-dark">
-                      {project.title}
-                    </h3>
-                    <Badge className="bg-teal/15 text-teal hover:bg-teal/20 border-0 rounded-full px-4 py-1 font-medium">
-                      {project.tagline}
-                    </Badge>
-                    <div className="text-base">
-                      <span className="font-bold text-text-dark">2025</span>
-                      <span className="text-text-dark/60 ml-1">
-                        {project.inProgress ? "  In Progress" : "  Completed"}
-                      </span>
-                    </div>
-                    <hr className="border-t border-text-dark/20 mt-3" />
-                  </div>
-                  
-                  <p className="text-text-dark/70 leading-relaxed text-base md:text-lg">
-                    {project.description}
-                  </p>
+        <div className="w-[90%] md:w-[80%] mx-auto relative overflow-hidden rounded-3xl transition-all duration-500 bg-teal border border-white/10 shadow-2xl">
+          {/* Lighter Glow for Teal Background */}
+          <div
+            className="absolute -left-1/4 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent blur-3xl rounded-full pointer-events-none"
+            aria-hidden
+          />
+          
+          <div className="relative p-6 md:p-12 z-10">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Left side - Logo & Mobile Nav */}
+              <div className="flex flex-col justify-center md:justify-start items-center  pt-4 md:pt-16 h-full min-h-[120px] md:min-h-[300px] relative">
+                <Image
+                  src={project.logo}
+                  alt={`${project.title} logo`}
+                  width={400}
+                  height={160}
+                  className="w-auto h-20 md:h-36 object-contain"
+                />
+                
+                {/* Mobile Navigation Arrows - Below Logo */}
+                <div className="flex md:hidden gap-3 mt-6">
+                  <button 
+                    onClick={prevProject}
+                    className="p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Previous project"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button 
+                    onClick={nextProject}
+                    className="p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Next project"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
 
-                  <div className="flex flex-wrap gap-3">
+              {/* Right side - Content */}
+              <div className="space-y-6 md:space-y-8 relative">
+                {/* Desktop Navigation Arrows - Top Right */}
+                <div className="hidden md:flex gap-3 mb-4">
+                  <button 
+                    onClick={prevProject}
+                    className="p-3 rounded-full bg-black/20 hover:bg-black/40 hover:cursor-pointer text-white transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Previous project"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button 
+                    onClick={nextProject}
+                    className="p-3 rounded-full bg-black/20 hover:bg-black/40 hover:cursor-pointer text-white transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Next project"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <p className="text-lg md:text-xl font-medium text-white leading-relaxed text-left">
+                  "{project.description}"
+                </p>
+
+                <div className="grid grid-cols-3 gap-2 md:gap-4 pt-2 md:pt-4">
+                  {project.stats.map((stat, i) => {
+                    // Split label into two lines if it contains a space
+                    const labelParts = stat.label.split(' ');
+                    const firstLine = labelParts[0];
+                    const secondLine = labelParts.slice(1).join(' ');
+
+                    return (
+                      <div key={i} className="space-y-1 text-left">
+                        <div className="text-xl sm:text-2xl lg:text-4xl font-bold text-white tracking-tight">
+                          {stat.value}
+                        </div>
+                        <div className="text-[9px] sm:text-[10px] lg:text-sm text-white/70 uppercase tracking-wider font-medium leading-tight">
+                          <div>{firstLine}</div>
+                          {secondLine && <div>{secondLine}</div>}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="pt-4 md:pt-6 flex flex-col gap-3 md:gap-4 w-full">
                   {project.caseStudySlug && (
                     <Button
-                      className="bg-white border border-teal text-teal hover:bg-teal/5 rounded-lg shadow-sm transition-all duration-300 w-fit"
+                      className="bg-white hover:bg-white/90 text-teal rounded-full px-6 md:px-8 py-5 md:py-6 font-semibold transition-all duration-300 text-sm md:text-base w-full"
                       asChild
                     >
                       <Link href={`/case-study/${project.caseStudySlug}`}>
-                        Read Case Study
+                        Read Case Study <ChevronRight className="ml-2 w-4 h-4" />
                       </Link>
                     </Button>
                   )}
-                  {project.link && project.link !== "#" && (
-                    <Button 
-                      className="bg-teal hover:bg-teal/90 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 w-fit"
+                  {project.link && (
+                    <Button
+                      className="bg-transparent border border-white/30 hover:bg-white/10 text-white rounded-full px-6 md:px-8 py-5 md:py-6 font-semibold transition-all duration-300 text-sm md:text-base w-full"
                       asChild
                     >
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        Check Website
-                        <ExternalLink className="ml-2 h-4 w-4" />
+                        Visit Website <ExternalLink className="ml-2 w-4 h-4" />
                       </a>
                     </Button>
                   )}
-                  </div>
-                </div>
-
-                {/* Right side - Image */}
-                <div className={`relative ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-500">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={800}
-                      height={364}
-                      sizes="(max-width: 768px) 80vw, 640px"
-                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                      priority={index === 0}
-                    />
-                    
-                    {/* Work In Progress Badge */}
-                    {project.inProgress && (
-                      <div className="absolute top-0 right-0 w-0 h-0 border-t-[80px] border-l-[80px] border-t-[#FFD700] border-l-transparent">
-                        <span className="absolute -top-[68px] right-[5px] text-black text-xs font-bold rotate-45 origin-center">
-                          Work In Progress
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

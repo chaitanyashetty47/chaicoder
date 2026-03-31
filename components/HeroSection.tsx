@@ -2,7 +2,6 @@
 
 import React from 'react';
 import RadarBadge from './RadarBadge';
-import { Timer, Gauge, Headset} from 'lucide-react';
 import { DottedStaticBackground } from '@/components/ui/dotted-static-background';
 
 

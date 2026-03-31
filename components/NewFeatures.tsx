@@ -426,11 +426,11 @@ function PresenceVisual() {
 						<AiWorkflowIcon className="size-8 text-primary/80" />
 					</div>
 				</FeatureVisualSection>
-				<FeatureContentSection className="mt-0 text-center sm:text-left">
+				<FeatureContentSection className="mt-0 text-left">
 					<FeatureTitle className="text-base text-left md:whitespace-nowrap">
 						AI-Powered Development
 					</FeatureTitle>
-					<FeatureDescription>
+					<FeatureDescription className="text-left">
 						We leverage modern AI tools like Cursor, Lovable, and Supabase to
 						accelerate development, combined with proven engineering standards
 						and experienced oversight.
@@ -439,12 +439,12 @@ function PresenceVisual() {
 				</FeatureContentSection>
 			</div>
 			{/* Vertical infinite logo slider instead of globe */}
-			<div className="flex h-[180px] min-h-0 gap-3 py-4 px-4 justify-center sm:h-[220px] md:h-[280px] md:gap-4">
+			<div className="flex h-[180px] min-w-0 gap-3 py-4 px-4 justify-center items-center sm:h-[220px] md:h-[280px] md:gap-4 w-full max-w-[200px] mx-auto">
 				<InfiniteSlider
 					direction="top"
 					speed={40}
 					gap={12}
-					className="h-full flex-1 min-w-0"
+					className="h-full w-1/2 min-w-0 flex justify-center"
 				>
 					{LOGO_SLIDER_ITEMS.slice(0, 3).map((item) => (
 						<img
@@ -459,7 +459,7 @@ function PresenceVisual() {
 					direction="bottom"
 					speed={40}
 					gap={12}
-					className="h-full flex-1 min-w-0"
+					className="h-full w-1/2 min-w-0 flex justify-center"
 				>
 					{LOGO_SLIDER_ITEMS.slice(3).map((item) => (
 						<img

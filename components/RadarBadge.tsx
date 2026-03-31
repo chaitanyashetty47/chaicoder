@@ -21,7 +21,7 @@ const RadarBadge: React.FC = () => {
 
         {/* Badge Text */}
         <span className="text-sm font-medium text-[#3D2C20] font-inter">
-          Final 2 slots open for March
+          Final 2 slots open for April
         </span>
       </div>
     </div>

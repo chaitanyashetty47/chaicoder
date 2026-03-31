@@ -13,8 +13,8 @@ const faqsData = [
     answer: "Yes. If you've built an early version with no-code or vibe-coded tools but it's buggy, we'll step in, stabilize it if its possible or else we'll build it from scratch.",
   },
   {
-    question: "What happens after the MVP is shipped?",
-    answer: `Once your MVP is live, you're in control of what comes next.
+    question: "What happens after the Product is shipped?",
+    answer: `Once your Product is live, you're in control of what comes next.
 
 You have two clear paths:
 
@@ -48,7 +48,7 @@ We simply help you build it right.`
   },
   // {
   //   question: "What makes your agency different?",
-  //   answer: "We specialize in fast, cost-effective MVPs for non-technical founders with a transparent process, lean builds, and scalability baked in.",
+  //   answer: "We specialize in fast, cost-effective Products for non-technical founders with a transparent process, lean builds, and scalability baked in.",
   // },
 ];
 
