@@ -10,40 +10,40 @@ const projects = [
   {
     id: 1,
     title: "Strentor",
-    description: "We rebuilt Strentor's digital presence from the ground up - turning a generic landing page into a full-stack product ecosystem that supported growth toward $5M+ in 8 months.",
+    description: "We transformed Strentor from a marketing website into a full product ecosystem with subscription infrastructure, client management, and operational automation.",
     logo: "/logos/white/strentor.png",
     link: "https://www.strentor.com",
     caseStudySlug: "strentor",
-    stats: [
-      { value: "$5M", label: "revenue generated" },
-      { value: "100k+", label: "monthly users" },
-      { value: "100+", label: "monthly calls" }
-    ]
+    // stats: [
+    //   { value: "$5M", label: "revenue generated" },
+    //   { value: "100k+", label: "monthly users" },
+    //   { value: "100+", label: "monthly calls" }
+    // ]
   },
   {
     id: 2,
     title: "Spopeer",
-    description: "We architected Spopeer - a production ready sports networking platform, onboarding 3,000+ beta users with strong early engagement before full public launch.",
+    description: "We engineered Spopeer, a launch-ready networking platform for athletes, coaches, clubs, and sports professionals built on scalable social infrastructure.",
     logo: "/logos/white/spopeer-white-logo.png",
-    link: "https://www.spopeer.com",
+    // link: "https://www.spopeer.com",
     caseStudySlug: "spopeer",
-    stats: [
-      { value: "3k+", label: "beta users" },
-      { value: "500+", label: "profiles in 10 days" },
-      { value: "7m", label: "avg session" }
-    ]
+    // stats: [
+    //   { value: "3k+", label: "beta users" },
+    //   { value: "500+", label: "profiles in 10 days" },
+    //   { value: "7m", label: "avg session" }
+    // ]
   },
   {
     id: 3,
     title: "Ztraél",
-    description: "We transformed Ztraél's dull Shopify experience into a cleaner, more conversion-focused product journey, lifting the conversion rate from ~1.8% to 3.2% and driving ~78% more orders.",
+    description:"We transformed Ztraél from a manual order workflow into a fully operational Shopify store, enabling customers to browse, purchase, and checkout independently.",
     logo: "/logos/white/ztrael.png",
     caseStudySlug: "ztrael",
-    stats: [
-      { value: "+78%", label: "in orders" },
-      { value: "3.2%", label: "conversion rate" },
-      { value: "2.3k+", label: "monthly visitors" }
-    ]
+    // stats: [
+    //   { value: "+78%", label: "in orders" },
+    //   { value: "3.2%", label: "conversion rate" },
+    //   { value: "2.3k+", label: "monthly visitors" }
+    // ]
   },
 ];
 
@@ -134,7 +134,8 @@ const ProjectShowcase = () => {
                   "{project.description}"
                 </p>
 
-                <div className="grid grid-cols-3 gap-2 md:gap-4 pt-2 md:pt-4">
+                {/* not needed for now, will updated in future */}
+                {/* <div className="grid grid-cols-3 gap-2 md:gap-4 pt-2 md:pt-4">
                   {project.stats.map((stat, i) => {
                     // Split label into two lines if it contains a space
                     const labelParts = stat.label.split(' ');
@@ -153,7 +154,7 @@ const ProjectShowcase = () => {
                       </div>
                     );
                   })}
-                </div>
+                </div> */}
 
                 <div className="pt-4 md:pt-6 flex flex-col gap-3 md:gap-4 w-full">
                   {project.caseStudySlug && (
