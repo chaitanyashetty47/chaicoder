@@ -25,30 +25,21 @@ const HeroSection: React.FC = () => {
         <RadarBadge />
         
 
-        {/* Tracking Normal */}
 
-        {/* <button onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')} className="bg-teal text-white font-semibold mb-2 px-6 py-3 rounded-lg hover:bg-teal-hover transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-inter hover:cursor-pointer">
-          Tracking 0% 
-        </button>
-
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold  text-primary-orange font-sansation leading-tight text-center">
-          Bring the Ideas.<br /> We&apos;ll Brew the Product
-        </h1> */}
-
-        {/* <h1 className="text-3xl md:text-5xl lg:text-6xl mb-4 text-black font-sansation text-center"> VS </h1> */}
-
-        {/* Tracking Tighter */}
-
-        {/* <button onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')} className="bg-teal text-white font-semibold mb-2 px-6 py-3 rounded-lg hover:bg-teal-hover transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-inter hover:cursor-pointer">
-          Tracking -5% (tracking-tighter in Tailwind)
-        </button> */}
-
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary-orange font-sansation mb-4 leading-tight text-center">
-          Bring the Ideas.<br /> We&apos;ll Brew the Product
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-primary-orange font-sansation mb-4 leading-tight text-center w-full max-w-4xl mx-auto">
+          <span className="block">
+            Your Agency Need <span className="text-teal">Better Software</span>
+          </span>
+          <span className="block">
+            Your Idea Need a <span className="text-teal">Builder</span>
+          </span>
+          <span className="block">
+            We Do <span className="text-teal">Both</span>
+          </span>
         </h1>
         
         <p className="text-base text-center md:text-lg lg:text-xl font-medium text-text-dark max-w-2xl mt-4 leading-relaxed font-inter mx-auto">
-        Your trusted tech partner handling strategy, design, and engineering from concept to launch-ready product.
+          We build internal tools that replace your SaaS stack and MVPs that go from idea to launch in days, not months.
         </p>
       
       <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">

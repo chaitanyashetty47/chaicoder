@@ -86,7 +86,7 @@ const TestimonialSection: React.FC = () => {
                     <>
                       <blockquote className="twitter-tweet" data-theme="light">
                         <p lang="en" dir="ltr">
-                          Working with <a href="https://twitter.com/thechaicoder">@thechaicoder</a> was an absolute game-changer for our project! 🚀 The attention to detail, speed of delivery, and technical expertise exceeded our expectations. Highly recommend for anyone looking to build an Product or scale their product.
+                          Working with <a href="https://x.com/chaitanyshetty">@chaitanyshetty</a> was an absolute game-changer for our project! 🚀 The attention to detail, speed of delivery, and technical expertise exceeded our expectations. Highly recommend for anyone looking to build an Product or scale their product.
                         </p>
                         <a href="https://twitter.com/Spopeer/status/1972354853524697181?ref_src=twsrc%5Etfw">December 15, 2024</a>
                       </blockquote>

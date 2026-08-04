@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} The Chai Coder. All rights reserved.
           </p>
           <a
-            href="https://x.com/thechaicoder"
+            href="https://x.com/chaitanyshetty"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors duration-300 group"

@@ -59,27 +59,27 @@ interface StepData {
 
 const steps: StepData[] = [
   {
-    title: "Consultation Call",
+    title: "Discovery Call",
     description:
-      "Kick things off with a discovery session to clarify your vision, goals, and requirements.",
+      "We get on a call, map your problem, and figure out the fastest path to a working product. Not a 10-slide proposal. A real plan.",
     icon: PhoneCallIcon,
   },
   {
-    title: "Planning & Roadmap",
+    title: "Scope & Stack",
     description:
-      "In one week, we define scope, prioritize features, and craft a roadmap for your Product launch.",
+      "Within days, we lock in the features that matter, cut everything that doesn't, and pick the stack that gets you live fastest.",
     icon: RouteMapProcessIcon,
   },
   {
-    title: "Development & Testing",
+    title: "Build Sprint",
     description:
-      "We build fast using AI-powered tools (Cursor, CodeRabbit, Lovable), ensuring lean, secure, and scalable code.",
+      "We ship using Cursor, Lovable, Supabase, and CodeRabbit. Most projects go from zero to deployed in 1-2 weeks. Some in 24 hours.",
     icon: CodeBracketIcon,
   },
   {
-    title: "Launch",
+    title: "You're Live",
     description:
-      "Your Product goes live, ready to gather real user feedback or pitch confidently to investors.",
+      "Deployed, tested, handed off. You own the code, the product, and the momentum. Pitch investors or start selling on day one.",
     icon: RocketLaunchIcon,
   },
 ];
@@ -98,11 +98,10 @@ export default function OurProcess() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-primary-orange mb-3 md:mb-4">
-            Our 4-Step Product Build System
+            Our 4-Step Product Build
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-text-dark max-w-4xl mx-auto px-2">
-            A lean, market-ready Product in 4 proven phases, designed to save time,
-            cut costs, and maximize impact.
+            From first call to deployed product — a lean process built for speed without cutting corners.
           </p>
         </div>
 

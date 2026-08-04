@@ -3,50 +3,12 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState, type ComponentProps } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import { SquareMousePointerIcon, GlobeIcon } from "lucide-react";
-
-const LOGO_SLIDER_ITEMS = [
-	{ src: "https://storage.efferd.com/logo/openai.svg", alt: "OpenAI" },
-	{ src: "https://storage.efferd.com/logo/supabase.svg", alt: "Supabase" },
-	{ src: "https://storage.efferd.com/logo/vercel.svg", alt: "Vercel" },
-	{ src: "/lovable.png", alt: "Lovable" },
-	{ src: "/cursor.png", alt: "Cursor"},
-	{ src: "/coderabbit.png", alt: "Code Rabbit"},
-
-];
 
 type ChatMessage = { sender: "visitor" | "you"; message: string; time: string };
 
 const CHAT_SCENARIOS: ChatMessage[][] = [
-	[
-		{
-			sender: "you",
-			message:
-				"This week's Loom update is live",
-			time: "6:12 PM",
-		},
-
-		{
-			sender: "visitor",
-			message: "Excellent. Looks solid. Great job!",
-			time: "6:18 PM",
-		},
-	],
-	[
-		{
-			sender: "visitor",
-			message: "Can we adjust the signup flow slightly?",
-			time: "7:44 PM",
-		},
-		{
-			sender: "you",
-			message:
-				"Absolutely. Will revise it.",
-			time: "7:47 PM",
-		},
-	],
 	[
 		{
 			sender: "visitor",
@@ -55,10 +17,9 @@ const CHAT_SCENARIOS: ChatMessage[][] = [
 		},
 		{
 			sender: "you",
-			message: "We'll focus on core flow, and get it done.",
+			message: "We'll focus on core flow and get it done.",
 			time: "8:05 PM",
 		},
-		
 	],
 ];
 
@@ -98,7 +59,7 @@ export function FeatureSection() {
 					What Sets Us Apart
 				</h2>
 				<p className="text-base md:text-lg lg:text-xl text-text-dark max-w-2xl mx-auto">
-					Building Products shouldn&apos;t feel messy, here&apos;s how we make it smooth.
+					Building products shouldn&apos;t feel messy. Here&apos;s how we make it smooth.
 				</p>
 			</header>
 			<div className="relative mx-auto grid w-full grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-6">
@@ -211,8 +172,8 @@ function SetupVisual({ hasDots = false }: { hasDots?: boolean }) {
 			<FeatureContentSection>
 				<FeatureTitle>Product Roadmap & Strategy</FeatureTitle>
 				<FeatureDescription>
-					We define scope, craft PRD, align features to business goals, and
-					build a clear design, development, and deployment plan.
+					We define scope, craft the PRD, align features to business goals, and
+					build a clear plan for design, development, and deployment. No guesswork.
 				</FeatureDescription>
 			</FeatureContentSection>
 		</>
@@ -232,11 +193,7 @@ function UserBasedSecurity({ hasDots = false }: { hasDots?: boolean }) {
 			<FeatureContentSection>
 				<FeatureTitle>Elite Security Standards</FeatureTitle>
 				<FeatureDescription>
-					We follow industry grade best practices to safeguard your product from
-					vulnerabilities and threats, ensuring long-term stability.
-					{/* From architecture to deployment, your
-					platform is engineered with protection, compliance, and long-term
-					stability in mind. */}
+					Every line of AI-generated code gets reviewed by a senior engineer before it ships. We use CodeRabbit for automated security and QA. No exceptions, no shortcuts.
 				</FeatureDescription>
 			</FeatureContentSection>
 		</>
@@ -347,8 +304,7 @@ function ReportsVisual() {
 				<FeatureTitle>Async Collaboration</FeatureTitle>
 				<FeatureDescription>
 					From structured weekly Loom updates to fast turnarounds on small
-					tweaks, we stay aligned throughout the journey. 
-					
+					tweaks, we stay aligned throughout. Silence kills trust. We don&apos;t go quiet.
 				</FeatureDescription>
 			</FeatureContentSection>
 		</>
@@ -369,9 +325,8 @@ function DashboardVisual({ hasDots = false }: { hasDots?: boolean }) {
 						Sleek & Intuitive Design
 					</FeatureTitle>
 					<FeatureDescription>
-						We design interfaces that feel natural, intuitive, and frictionless
-						across every screen. Every interaction is thoughtfully considered so
-						nothing important is overlooked.
+						We design interfaces that feel natural and frictionless
+						across every screen. AI handles 80-90% of the design work. For complex custom work, we bring in specialists.
 					</FeatureDescription>
 				</FeatureContentSection>
 			</div>
@@ -419,58 +374,20 @@ function DashboardVisual({ hasDots = false }: { hasDots?: boolean }) {
 
 function PresenceVisual() {
 	return (
-		<div className="grid sm:grid-cols-2 gap-2">
-			<div className="space-y-6 pt-8 pb-4 px-8 sm:pb-8">
-				<FeatureVisualSection className="min-h-0 flex items-center justify-start ">
-					<div className="flex size-12 items-center justify-center rounded-full border bg-card shadow-xs outline outline-border/80 outline-offset-2">
-						<AiWorkflowIcon className="size-8 text-primary/80" />
-					</div>
-				</FeatureVisualSection>
-				<FeatureContentSection className="mt-0 text-left">
-					<FeatureTitle className="text-base text-left md:whitespace-nowrap">
-						AI-Powered Development
-					</FeatureTitle>
-					<FeatureDescription className="text-left">
-						We leverage modern AI tools like Cursor, Lovable, and Supabase to
-						accelerate development, combined with proven engineering standards
-						and experienced oversight.
-						{/* Faster builds, without cutting corners. */}
-					</FeatureDescription>
-				</FeatureContentSection>
-			</div>
-			{/* Vertical infinite logo slider instead of globe */}
-			<div className="flex h-[180px] min-w-0 gap-3 py-4 px-4 justify-center items-center sm:h-[220px] md:h-[280px] md:gap-4 w-full max-w-[200px] mx-auto">
-				<InfiniteSlider
-					direction="top"
-					speed={40}
-					gap={12}
-					className="h-full w-1/2 min-w-0 flex justify-center"
-				>
-					{LOGO_SLIDER_ITEMS.slice(0, 3).map((item) => (
-						<img
-							key={item.alt}
-							src={item.src}
-							alt={item.alt}
-							className="aspect-square w-14 shrink-0 rounded-lg object-contain sm:w-16 md:w-20"
-						/>
-					))}
-				</InfiniteSlider>
-				<InfiniteSlider
-					direction="bottom"
-					speed={40}
-					gap={12}
-					className="h-full w-1/2 min-w-0 flex justify-center"
-				>
-					{LOGO_SLIDER_ITEMS.slice(3).map((item) => (
-						<img
-							key={`reverse-${item.alt}`}
-							src={item.src}
-							alt={item.alt}
-							className="aspect-square w-14 shrink-0 rounded-lg object-contain sm:w-16 md:w-20"
-						/>
-					))}
-				</InfiniteSlider>
-			</div>
+		<div className="space-y-6 pt-8 pb-8 px-8">
+			<FeatureVisualSection className="min-h-0 flex items-center justify-start">
+				<div className="flex size-12 items-center justify-center rounded-full border bg-card shadow-xs outline outline-border/80 outline-offset-2">
+					<AiWorkflowIcon className="size-8 text-primary/80" />
+				</div>
+			</FeatureVisualSection>
+			<FeatureContentSection className="mt-0 text-left">
+				<FeatureTitle className="text-base text-left">
+					AI-Powered Development
+				</FeatureTitle>
+				<FeatureDescription className="text-left">
+					We build with Cursor, Lovable, Supabase, and CodeRabbit. Modern AI tools for speed, experienced engineers for quality. The tools don&apos;t replace the thinking.
+				</FeatureDescription>
+			</FeatureContentSection>
 		</div>
 	);
 }
