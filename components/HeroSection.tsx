@@ -26,16 +26,8 @@ const HeroSection: React.FC = () => {
         
 
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-primary-orange font-sansation mb-4 leading-tight text-center w-full max-w-4xl mx-auto">
-          <span className="block">
-            Your Agency Need <span className="text-teal">Better Software</span>
-          </span>
-          <span className="block">
-            Your Idea Need a <span className="text-teal">Builder</span>
-          </span>
-          <span className="block">
-            We Do <span className="text-teal">Both</span>
-          </span>
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary-orange font-sansation mb-4 leading-tight text-center">
+          Bring the Ideas.<br /> We&apos;ll Brew the Product
         </h1>
         
         <p className="text-base text-center md:text-lg lg:text-xl font-medium text-text-dark max-w-2xl mt-4 leading-relaxed font-inter mx-auto">
