@@ -15,7 +15,7 @@ export default function CaseStudyNotFound() {
           href="/case-study"
           className="inline-flex items-center bg-teal text-white font-semibold px-6 py-3 rounded-lg hover:bg-teal-hover transition-colors"
         >
-          ← Back to Case Study
+          ← Back to Case Studies
         </Link>
       </div>
     </div>

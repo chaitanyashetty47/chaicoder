@@ -3,7 +3,7 @@ import { getAllCaseStudies } from '@/lib/case-study';
 import Header from '@/components/Header';
 
 export const metadata = {
-  title: 'Case Study | The Chai Coder',
+  title: 'Case Studies | The Chai Coder',
   description:
     'Real projects, real impact. See how we help brands build and ship products that scale.',
 };
@@ -16,7 +16,7 @@ export default function CaseStudyListPage() {
       <div className="container mx-auto px-8 py-12 md:py-16 max-w-4xl">
         <div className="mb-12">
           <p className="text-sm font-medium tracking-widest text-teal uppercase mb-2">
-            Case Study
+            Case Studies
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-text-dark mb-4">
             Our Work in Action

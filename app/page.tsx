@@ -18,10 +18,10 @@ export default function App() {
         <HeroSection />
         <TrustedByCarousel />
         <FeatureSection />
-        <TwoWaysSection />
-        <ProcessSection />
-        <ProjectsSection />
         <TestimonialSection />
+        <ProcessSection />
+        <TwoWaysSection />
+        <ProjectsSection />
         <FAQSection />
         <Footer />
       </div>

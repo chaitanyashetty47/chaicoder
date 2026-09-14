@@ -55,7 +55,7 @@ const Header: React.FC = () => {
               Our Work
             </Link>
             <Link href="/case-study" className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300">
-              Case Study
+              Case Studies
             </Link>
           </div>
         </div>
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
               Our Work
             </Link>
             <Link href="/case-study" onClick={() => setIsMenuOpen(false)} className="text-[#3D2C20] font-inter hover:text-[#E07A5F] transition-colors duration-300 py-2 text-left block">
-              Case Study
+              Case Studies
             </Link>
             <button onClick={() => window.open('https://cal.com/chaitanya-shetty/the-chai-coder-discovery-call', '_blank')} className="bg-[#2A9D8F] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#238B7A] transition-colors duration-300 font-inter mt-4 self-start hover:cursor-pointer">
               Book Your Call
